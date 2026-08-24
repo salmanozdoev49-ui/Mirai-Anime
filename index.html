@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -18,6 +18,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+button,
+input {
+    font-family: inherit;
+}
+
 header {
     height: 65px;
     padding: 0 18px;
@@ -28,7 +33,7 @@ header {
     border-bottom: 1px solid #20212a;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
 }
 
 .logo {
@@ -40,19 +45,22 @@ header {
     color: #8b5cf6;
 }
 
-.search-btn {
+.header-search {
     font-size: 22px;
     cursor: pointer;
 }
 
 main {
-    padding: 25px 16px 90px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 16px 90px;
 }
 
 .hero {
     padding: 28px 20px;
     border-radius: 20px;
     background:
+        radial-gradient(circle at 90% 10%, #3b2368 0, transparent 35%),
         linear-gradient(135deg, #171126, #0c0d13);
     margin-bottom: 30px;
 }
@@ -63,15 +71,15 @@ main {
 }
 
 .hero p {
-    color: #a9a9b4;
+    color: #aaaab5;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
 }
 
 .search {
     width: 100%;
-    padding: 15px;
-    border: none;
+    padding: 15px 17px;
+    border: 1px solid #292a36;
     outline: none;
     border-radius: 12px;
     background: #20212a;
@@ -79,11 +87,15 @@ main {
     font-size: 15px;
 }
 
+.search:focus {
+    border-color: #8b5cf6;
+}
+
 .section-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin: 25px 0 15px;
 }
 
 .section-title h2 {
@@ -91,9 +103,11 @@ main {
     margin: 0;
 }
 
-.section-title span {
-    color: #8b5cf6;
-    font-size: 13px;
+.section-title button {
+    border: 0;
+    background: none;
+    color: #9b72ff;
+    cursor: pointer;
 }
 
 .anime-grid {
@@ -104,34 +118,157 @@ main {
 
 .anime-card {
     background: #111219;
-    border-radius: 14px;
+    border-radius: 15px;
     overflow: hidden;
     border: 1px solid #1e2029;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.anime-card:hover {
+    transform: translateY(-3px);
+    border-color: #8b5cf6;
 }
 
 .poster {
+    width: 100%;
     height: 220px;
-    background: linear-gradient(135deg, #29203f, #15151d);
+    object-fit: cover;
+    background: #191a23;
+    display: block;
+}
+
+.poster-placeholder {
+    height: 220px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: #777;
-    font-size: 40px;
+    align-items: center;
+    font-size: 45px;
+    background: linear-gradient(135deg, #29203f, #15151d);
 }
 
 .anime-info {
-    padding: 10px;
+    padding: 11px;
 }
 
 .anime-title {
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 6px;
+    line-height: 1.35;
+    margin-bottom: 7px;
 }
 
 .anime-meta {
     color: #888995;
     font-size: 12px;
+}
+
+.rating {
+    color: #ffc857;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.back {
+    border: 0;
+    background: #191a22;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 18px;
+}
+
+.anime-detail {
+    background: #111219;
+    border: 1px solid #20212a;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.detail-top {
+    padding: 20px;
+}
+
+.detail-poster {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.detail-title {
+    font-size: 26px;
+    margin: 0 0 10px;
+}
+
+.detail-description {
+    color: #aaaab5;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 15px 0;
+}
+
+.tag {
+    background: #24202f;
+    color: #c5a9ff;
+    padding: 6px 9px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.favorite-btn {
+    border: 0;
+    background: #8b5cf6;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.season-title {
+    font-size: 19px;
+    margin: 25px 0 12px;
+}
+
+.episode-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.episode {
+    border: 1px solid #292a35;
+    background: #171820;
+    color: white;
+    padding: 12px 5px;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.episode:hover {
+    background: #8b5cf6;
+}
+
+.empty {
+    text-align: center;
+    padding: 40px 15px;
+    color: #777985;
 }
 
 .bottom-nav {
@@ -145,13 +282,14 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 20;
+    z-index: 30;
 }
 
 .nav-item {
     text-align: center;
     color: #777984;
     font-size: 11px;
+    cursor: pointer;
 }
 
 .nav-item div {
@@ -165,12 +303,12 @@ main {
 
 @media (min-width: 700px) {
     .anime-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 
-    main {
-        max-width: 1100px;
-        margin: auto;
+    .detail-poster {
+        width: 190px;
+        height: 280px;
     }
 }
 </style>
@@ -183,118 +321,637 @@ main {
         Mirai <span>Anime</span>
     </div>
 
-    <div class="search-btn">
+    <div class="header-search" onclick="focusSearch()">
         🔍
     </div>
 </header>
 
+
 <main>
 
+<!-- ГЛАВНАЯ -->
+<section id="homePage" class="page active">
+
     <section class="hero">
+
         <h1>Смотри аниме</h1>
 
         <p>
-            Твоя коллекция любимых аниме —
-            в одном месте.
+            Находи любимые тайтлы,
+            добавляй их в избранное
+            и продолжай просмотр.
         </p>
 
         <input
+            id="searchInput"
             class="search"
             type="text"
             placeholder="🔎  Найти аниме..."
+            oninput="searchAnime()"
         >
+
     </section>
+
 
     <div class="section-title">
         <h2>Популярное</h2>
-        <span>Все →</span>
+
+        <button onclick="showPage('catalogPage')">
+            Все →
+        </button>
     </div>
 
-    <div class="anime-grid">
+    <div id="popularGrid" class="anime-grid"></div>
 
-        <div class="anime-card">
-            <div class="poster">🎬</div>
+</section>
 
-            <div class="anime-info">
-                <div class="anime-title">
-                    Аниме будет здесь
-                </div>
 
-                <div class="anime-meta">
-                    2026 • 12 серий
-                </div>
-            </div>
-        </div>
+<!-- КАТАЛОГ -->
+<section id="catalogPage" class="page">
 
-        <div class="anime-card">
-            <div class="poster">🎬</div>
-
-            <div class="anime-info">
-                <div class="anime-title">
-                    Скоро добавим
-                </div>
-
-                <div class="anime-meta">
-                    2026 • 24 серии
-                </div>
-            </div>
-        </div>
-
-        <div class="anime-card">
-            <div class="poster">🎬</div>
-
-            <div class="anime-info">
-                <div class="anime-title">
-                    Mirai Anime
-                </div>
-
-                <div class="anime-meta">
-                    2026 • Новый проект
-                </div>
-            </div>
-        </div>
-
-        <div class="anime-card">
-            <div class="poster">🎬</div>
-
-            <div class="anime-info">
-                <div class="anime-title">
-                    Новое аниме
-                </div>
-
-                <div class="anime-meta">
-                    Скоро
-                </div>
-            </div>
-        </div>
-
+    <div class="section-title">
+        <h2>Каталог</h2>
     </div>
+
+    <input
+        id="catalogSearch"
+        class="search"
+        type="text"
+        placeholder="🔎  Поиск по каталогу..."
+        oninput="catalogSearch()"
+    >
+
+    <div id="catalogGrid" class="anime-grid" style="margin-top:20px;"></div>
+
+</section>
+
+
+<!-- ИЗБРАННОЕ -->
+<section id="favoritesPage" class="page">
+
+    <div class="section-title">
+        <h2>Избранное</h2>
+    </div>
+
+    <div id="favoritesGrid" class="anime-grid"></div>
+
+</section>
+
+
+<!-- СТРАНИЦА АНИМЕ -->
+<section id="animePage" class="page">
+
+    <button class="back" onclick="showPage('homePage')">
+        ← Назад
+    </button>
+
+    <div id="animeDetails"></div>
+
+</section>
 
 </main>
 
+
+<!-- НИЖНЕЕ МЕНЮ -->
+
 <nav class="bottom-nav">
 
-    <div class="nav-item active">
+    <div
+        class="nav-item active"
+        onclick="showPage('homePage')"
+    >
         <div>🏠</div>
         Главная
     </div>
 
-    <div class="nav-item">
+    <div
+        class="nav-item"
+        onclick="showPage('catalogPage')"
+    >
         <div>📚</div>
         Каталог
     </div>
 
-    <div class="nav-item">
+    <div
+        class="nav-item"
+        onclick="showPage('favoritesPage')"
+    >
         <div>⭐</div>
         Избранное
     </div>
 
-    <div class="nav-item">
+    <div
+        class="nav-item"
+        onclick="showPage('homePage')"
+    >
         <div>👤</div>
         Профиль
     </div>
 
 </nav>
 
+
+<script>
+
+/* =========================
+   ДАННЫЕ АНИМЕ
+========================= */
+
+const animeList = [
+
+    {
+        id: 1,
+        title: "Магическая битва",
+        year: 2020,
+        episodes: 24,
+        rating: 8.7,
+        genres: ["Экшен", "Фэнтези", "Сёнэн"],
+        description:
+        "Юдзи Итадори оказывается втянут в мир проклятий после встречи с таинственным артефактом.",
+        poster: "",
+        popular: true
+    },
+
+    {
+        id: 2,
+        title: "Клинок, рассекающий демонов",
+        year: 2019,
+        episodes: 26,
+        rating: 8.8,
+        genres: ["Экшен", "Фэнтези"],
+        description:
+        "Тандзиро отправляется в опасное путешествие, чтобы спасти свою сестру и отомстить демонам.",
+        poster: "",
+        popular: true
+    },
+
+    {
+        id: 3,
+        title: "Атака титанов",
+        year: 2013,
+        episodes: 25,
+        rating: 9.0,
+        genres: ["Экшен", "Драма"],
+        description:
+        "Человечество пытается выжить за огромными стенами, защищающими людей от гигантских титанов.",
+        poster: "",
+        popular: true
+    },
+
+    {
+        id: 4,
+        title: "Моя геройская академия",
+        year: 2016,
+        episodes: 13,
+        rating: 8.2,
+        genres: ["Экшен", "Школа"],
+        description:
+        "В мире, где почти каждый обладает сверхспособностями, юный Изуку мечтает стать героем.",
+        poster: "",
+        popular: true
+    },
+
+    {
+        id: 5,
+        title: "Поднятие уровня в одиночку",
+        year: 2024,
+        episodes: 12,
+        rating: 8.9,
+        genres: ["Экшен", "Фэнтези"],
+        description:
+        "Слабейший охотник получает загадочную возможность повышать свой уровень.",
+        poster: "",
+        popular: true
+    },
+
+    {
+        id: 6,
+        title: "Ванпанчмен",
+        year: 2015,
+        episodes: 12,
+        rating: 8.6,
+        genres: ["Комедия", "Экшен"],
+        description:
+        "Сайтама способен победить любого противника одним ударом.",
+        poster: ""
+    }
+
+];
+
+
+/* =========================
+   ИЗБРАННОЕ
+========================= */
+
+let favorites =
+    JSON.parse(localStorage.getItem("miraiFavorites")) || [];
+
+
+/* =========================
+   СОЗДАНИЕ КАРТОЧКИ
+========================= */
+
+function createCard(anime) {
+
+    return `
+        <div class="anime-card"
+             onclick="openAnime(${anime.id})">
+
+            ${
+                anime.poster
+                ?
+                `<img class="poster"
+                      src="${anime.poster}"
+                      alt="${anime.title}">`
+                :
+                `<div class="poster-placeholder">
+                    🎬
+                </div>`
+            }
+
+            <div class="anime-info">
+
+                <div class="anime-title">
+                    ${anime.title}
+                </div>
+
+                <div class="anime-meta">
+                    ${anime.year}
+                    •
+                    ${anime.episodes} серий
+                    •
+                    <span class="rating">
+                        ★ ${anime.rating}
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+/* =========================
+   ГЛАВНАЯ
+========================= */
+
+function loadPopular() {
+
+    const grid =
+        document.getElementById("popularGrid");
+
+    const popular =
+        animeList.filter(anime => anime.popular);
+
+    grid.innerHTML =
+        popular.map(createCard).join("");
+}
+
+
+/* =========================
+   КАТАЛОГ
+========================= */
+
+function loadCatalog(list = animeList) {
+
+    const grid =
+        document.getElementById("catalogGrid");
+
+    if (!list.length) {
+
+        grid.innerHTML =
+            `<div class="empty">
+                Ничего не найдено 😔
+             </div>`;
+
+        return;
+    }
+
+    grid.innerHTML =
+        list.map(createCard).join("");
+}
+
+
+/* =========================
+   ПОИСК
+========================= */
+
+function searchAnime() {
+
+    const input =
+        document.getElementById("searchInput");
+
+    const value =
+        input.value.toLowerCase().trim();
+
+    if (!value) {
+
+        loadPopular();
+        return;
+    }
+
+    const results =
+        animeList.filter(anime =>
+            anime.title
+            .toLowerCase()
+            .includes(value)
+        );
+
+    document.getElementById("popularGrid")
+        .innerHTML =
+        results.length
+        ?
+        results.map(createCard).join("")
+        :
+        `<div class="empty">
+            Ничего не найдено 😔
+         </div>`;
+}
+
+
+function catalogSearch() {
+
+    const value =
+        document.getElementById("catalogSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const results =
+        animeList.filter(anime =>
+            anime.title
+            .toLowerCase()
+            .includes(value)
+        );
+
+    loadCatalog(results);
+}
+
+
+/* =========================
+   ОТКРЫТИЕ АНИМЕ
+========================= */
+
+function openAnime(id) {
+
+    const anime =
+        animeList.find(a => a.id === id);
+
+    if (!anime) return;
+
+    const favorite =
+        favorites.includes(id);
+
+    document.getElementById("animeDetails")
+        .innerHTML = `
+
+        <div class="anime-detail">
+
+            <div class="detail-top">
+
+                ${
+                    anime.poster
+                    ?
+                    `<img
+                        class="detail-poster"
+                        src="${anime.poster}"
+                        alt="${anime.title}">
+                    `
+                    :
+                    `<div class="detail-poster poster-placeholder">
+                        🎬
+                    </div>`
+                }
+
+                <h1 class="detail-title">
+                    ${anime.title}
+                </h1>
+
+                <div class="anime-meta">
+
+                    ${anime.year}
+                    •
+                    ${anime.episodes} серий
+                    •
+                    <span class="rating">
+                        ★ ${anime.rating}
+                    </span>
+
+                </div>
+
+                <div class="tags">
+
+                    ${anime.genres
+                        .map(g =>
+                            `<span class="tag">
+                                ${g}
+                             </span>`
+                        )
+                        .join("")
+                    }
+
+                </div>
+
+                <p class="detail-description">
+                    ${anime.description}
+                </p>
+
+                <button
+                    class="favorite-btn"
+                    onclick="toggleFavorite(${anime.id})">
+
+                    ${favorite
+                        ? "★ В избранном"
+                        : "☆ Добавить в избранное"
+                    }
+
+                </button>
+
+
+                <h2 class="season-title">
+                    Сезон 1
+                </h2>
+
+                <div class="episode-list">
+
+                    ${Array.from(
+                        {length: anime.episodes},
+                        (_, i) =>
+
+                        `<button
+                            class="episode"
+                            onclick="playEpisode(
+                                '${anime.title}',
+                                ${i + 1}
+                            )">
+
+                            Серия ${i + 1}
+
+                         </button>`
+                    ).join("")}
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    showPage("animePage");
+}
+
+
+/* =========================
+   ИЗБРАННОЕ
+========================= */
+
+function toggleFavorite(id) {
+
+    if (favorites.includes(id)) {
+
+        favorites =
+            favorites.filter(x => x !== id);
+
+    } else {
+
+        favorites.push(id);
+    }
+
+    localStorage.setItem(
+        "miraiFavorites",
+        JSON.stringify(favorites)
+    );
+
+    openAnime(id);
+    loadFavorites();
+}
+
+
+function loadFavorites() {
+
+    const grid =
+        document.getElementById("favoritesGrid");
+
+    const list =
+        animeList.filter(anime =>
+            favorites.includes(anime.id)
+        );
+
+    if (!list.length) {
+
+        grid.innerHTML =
+            `<div class="empty">
+                Здесь пока ничего нет ⭐
+             </div>`;
+
+        return;
+    }
+
+    grid.innerHTML =
+        list.map(createCard).join("");
+}
+
+
+/* =========================
+   СТРАНИЦЫ
+========================= */
+
+function showPage(pageId) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page =>
+            page.classList.remove("active")
+        );
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    document
+        .querySelectorAll(".nav-item")
+        .forEach(item =>
+            item.classList.remove("active")
+        );
+
+
+    if (pageId === "homePage") {
+
+        document
+            .querySelectorAll(".nav-item")[0]
+            .classList.add("active");
+
+    }
+
+    if (pageId === "catalogPage") {
+
+        document
+            .querySelectorAll(".nav-item")[1]
+            .classList.add("active");
+
+        loadCatalog();
+
+    }
+
+    if (pageId === "favoritesPage") {
+
+        document
+            .querySelectorAll(".nav-item")[2]
+            .classList.add("active");
+
+        loadFavorites();
+
+    }
+
+    window.scrollTo(0, 0);
+}
+
+
+/* =========================
+   ПОИСК ИЗ ШАПКИ
+========================= */
+
+function focusSearch() {
+
+    showPage("homePage");
+
+    setTimeout(() => {
+
+        document
+            .getElementById("searchInput")
+            .focus();
+
+    }, 100);
+}
+
+
+/* =========================
+   ПЛЕЕР — ПОКА ЗАГЛУШКА
+========================= */
+
+function playEpisode(title, episode) {
+
+    alert(
+        "Плеер Mirai Anime\n\n" +
+        title +
+        "\nСерия: " +
+        episode +
+        "\n\nВидео подключим следующим этапом."
+    );
+}
+
+
+/* =========================
+   ЗАПУСК
+========================= */
+
+loadPopular();
+loadCatalog();
+loadFavorites();
+
+</script>
+
 </body>
-  </html>
+    </html>
