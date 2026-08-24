@@ -1,1 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Mirai Anime</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #08090d;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    height: 65px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0d0e14;
+    border-bottom: 1px solid #20212a;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #8b5cf6;
+}
+
+.search-btn {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+main {
+    padding: 25px 16px 90px;
+}
+
+.hero {
+    padding: 28px 20px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg, #171126, #0c0d13);
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+}
+
+.hero p {
+    color: #a9a9b4;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.search {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: #20212a;
+    color: white;
+    font-size: 15px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.section-title span {
+    color: #8b5cf6;
+    font-size: 13px;
+}
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.anime-card {
+    background: #111219;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #1e2029;
+}
+
+.poster {
+    height: 220px;
+    background: linear-gradient(135deg, #29203f, #15151d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 40px;
+}
+
+.anime-info {
+    padding: 10px;
+}
+
+.anime-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.anime-meta {
+    color: #888995;
+    font-size: 12px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 65px;
+    background: #0d0e14;
+    border-top: 1px solid #20212a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 20;
+}
+
+.nav-item {
+    text-align: center;
+    color: #777984;
+    font-size: 11px;
+}
+
+.nav-item div {
+    font-size: 21px;
+    margin-bottom: 3px;
+}
+
+.nav-item.active {
+    color: #8b5cf6;
+}
+
+@media (min-width: 700px) {
+    .anime-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    main {
+        max-width: 1100px;
+        margin: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        Mirai <span>Anime</span>
+    </div>
+
+    <div class="search-btn">
+        🔍
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <h1>Смотри аниме</h1>
+
+        <p>
+            Твоя коллекция любимых аниме —
+            в одном месте.
+        </p>
+
+        <input
+            class="search"
+            type="text"
+            placeholder="🔎  Найти аниме..."
+        >
+    </section>
+
+    <div class="section-title">
+        <h2>Популярное</h2>
+        <span>Все →</span>
+    </div>
+
+    <div class="anime-grid">
+
+        <div class="anime-card">
+            <div class="poster">🎬</div>
+
+            <div class="anime-info">
+                <div class="anime-title">
+                    Аниме будет здесь
+                </div>
+
+                <div class="anime-meta">
+                    2026 • 12 серий
+                </div>
+            </div>
+        </div>
+
+        <div class="anime-card">
+            <div class="poster">🎬</div>
+
+            <div class="anime-info">
+                <div class="anime-title">
+                    Скоро добавим
+                </div>
+
+                <div class="anime-meta">
+                    2026 • 24 серии
+                </div>
+            </div>
+        </div>
+
+        <div class="anime-card">
+            <div class="poster">🎬</div>
+
+            <div class="anime-info">
+                <div class="anime-title">
+                    Mirai Anime
+                </div>
+
+                <div class="anime-meta">
+                    2026 • Новый проект
+                </div>
+            </div>
+        </div>
+
+        <div class="anime-card">
+            <div class="poster">🎬</div>
+
+            <div class="anime-info">
+                <div class="anime-title">
+                    Новое аниме
+                </div>
+
+                <div class="anime-meta">
+                    Скоро
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<nav class="bottom-nav">
+
+    <div class="nav-item active">
+        <div>🏠</div>
+        Главная
+    </div>
+
+    <div class="nav-item">
+        <div>📚</div>
+        Каталог
+    </div>
+
+    <div class="nav-item">
+        <div>⭐</div>
+        Избранное
+    </div>
+
+    <div class="nav-item">
+        <div>👤</div>
+        Профиль
+    </div>
+
+</nav>
+
+</body>
+  </html>
