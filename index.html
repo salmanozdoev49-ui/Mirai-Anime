@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mirai Anime</title>
 
 <style>
-
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -29,16 +27,18 @@ input {
     font-family: inherit;
 }
 
+button {
+    cursor: pointer;
+}
+
 header {
     height: 65px;
     padding: 0 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     background: #0d0e14;
     border-bottom: 1px solid #20212a;
-
     position: sticky;
     top: 0;
     z-index: 20;
@@ -62,6 +62,14 @@ main {
     max-width: 1100px;
     margin: auto;
     padding: 20px 16px 90px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
 }
 
 .hero {
@@ -97,14 +105,11 @@ main {
 .search {
     width: 100%;
     padding: 15px 17px;
-
     border: 1px solid #292a36;
     outline: none;
     border-radius: 12px;
-
     background: #20212a;
     color: white;
-
     font-size: 15px;
 }
 
@@ -116,7 +121,6 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin: 25px 0 15px;
 }
 
@@ -129,7 +133,6 @@ main {
     border: 0;
     background: none;
     color: #9b72ff;
-    cursor: pointer;
 }
 
 .anime-grid {
@@ -142,9 +145,7 @@ main {
     background: #111219;
     border-radius: 15px;
     overflow: hidden;
-
     border: 1px solid #1e2029;
-
     cursor: pointer;
     transition: .2s;
 }
@@ -157,21 +158,16 @@ main {
 .poster {
     width: 100%;
     height: 220px;
-
     object-fit: cover;
-
     background: #191a23;
-
     display: block;
 }
 
 .poster-placeholder {
     height: 220px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 45px;
 
     background:
@@ -190,7 +186,6 @@ main {
     font-size: 14px;
     font-weight: bold;
     line-height: 1.35;
-
     margin-bottom: 7px;
 }
 
@@ -216,66 +211,40 @@ main {
 .progress-bar {
     width: 100%;
     height: 4px;
-
     background: #292a35;
     border-radius: 10px;
-
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
-
     background: #8b5cf6;
-
     border-radius: 10px;
 }
 
 .status-label {
     display: inline-block;
-
     margin-top: 8px;
-
     padding: 5px 8px;
-
     border-radius: 7px;
-
     font-size: 10px;
-
     background: #24202f;
     color: #c5a9ff;
 }
 
-.page {
-    display: none;
-}
-
-.page.active {
-    display: block;
-}
-
 .back {
     border: 0;
-
     background: #191a22;
     color: white;
-
     padding: 10px 14px;
-
     border-radius: 10px;
-
-    cursor: pointer;
-
     margin-bottom: 18px;
 }
 
 .anime-detail {
     background: #111219;
-
     border: 1px solid #20212a;
-
     border-radius: 18px;
-
     overflow: hidden;
 }
 
@@ -286,133 +255,95 @@ main {
 .detail-poster {
     width: 150px;
     height: 220px;
-
     object-fit: cover;
-
     border-radius: 12px;
-
     display: block;
-
     margin-bottom: 18px;
 }
 
 .detail-title {
     font-size: 26px;
-
     margin: 0 0 10px;
 }
 
 .detail-description {
     color: #aaaab5;
-
     line-height: 1.6;
-
     font-size: 14px;
 }
 
 .tags {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 7px;
-
     margin: 15px 0;
 }
 
 .tag {
     background: #24202f;
-
     color: #c5a9ff;
-
     padding: 6px 9px;
-
     border-radius: 8px;
-
     font-size: 12px;
 }
 
 .status-title {
     font-size: 15px;
-
     margin-top: 25px;
     margin-bottom: 10px;
 }
 
 .status-buttons {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 8px;
 }
 
 .status-btn {
     border: 1px solid #292a35;
-
     background: #171820;
-
     color: white;
-
     padding: 11px 6px;
-
     border-radius: 9px;
-
-    cursor: pointer;
-
     font-size: 12px;
 }
 
 .status-btn.active {
     background: #8b5cf6;
-
     border-color: #8b5cf6;
 }
 
 .favorite-btn {
     border: 0;
-
     background: #8b5cf6;
-
     color: white;
-
     padding: 12px 16px;
-
     border-radius: 10px;
-
-    cursor: pointer;
-
     font-weight: bold;
-
     margin-top: 12px;
 }
 
 .season-title {
     font-size: 19px;
-
     margin: 25px 0 12px;
+}
+
+.season-block {
+    margin-bottom: 25px;
 }
 
 .episode-list {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 8px;
 }
 
 .episode {
     border: 1px solid #292a35;
-
     background: #171820;
-
     color: white;
-
     padding: 12px 5px;
-
     border-radius: 9px;
-
-    cursor: pointer;
 }
 
 .episode:hover {
@@ -421,8 +352,14 @@ main {
 
 .episode.watched {
     border-color: #8b5cf6;
-
     color: #c5a9ff;
+}
+
+.empty {
+    text-align: center;
+    padding: 40px 15px;
+    color: #777985;
+    grid-column: 1 / -1;
 }
 
 .watch-container {
@@ -431,37 +368,27 @@ main {
 
 .video-box {
     width: 100%;
-
     background: #000;
-
     border-radius: 14px;
-
     overflow: hidden;
-
     border: 1px solid #252631;
 }
 
 .video-box video {
     display: block;
-
     width: 100%;
-
     max-height: 70vh;
-
     background: #000;
 }
 
 .watch-title {
     margin: 18px 0 5px;
-
     font-size: 22px;
 }
 
 .watch-episode {
     color: #92939e;
-
     font-size: 14px;
-
     margin-bottom: 25px;
 }
 
@@ -471,180 +398,117 @@ main {
 
 .watch-label {
     font-size: 14px;
-
     font-weight: bold;
-
     margin-bottom: 10px;
 }
 
 .choice-list {
     display: flex;
-
     gap: 8px;
-
     flex-wrap: wrap;
 }
 
 .choice {
     border: 1px solid #292a35;
-
     background: #171820;
-
     color: #fff;
-
     padding: 11px 15px;
-
     border-radius: 9px;
-
-    cursor: pointer;
 }
 
 .choice.active {
     background: #8b5cf6;
-
     border-color: #8b5cf6;
-}
-
-.choice.disabled {
-    opacity: .35;
-
-    cursor: not-allowed;
-}
-
-.player-message {
-    padding: 25px;
-
-    text-align: center;
-
-    color: #aaaab5;
-
-    background: #111219;
-
-    border-radius: 14px;
 }
 
 .episode-navigation {
     display: flex;
-
     gap: 10px;
-
     margin-top: 25px;
 }
 
 .episode-navigation button {
     flex: 1;
-
     border: 1px solid #292a35;
-
     background: #171820;
-
     color: white;
-
     padding: 13px 8px;
-
     border-radius: 10px;
-
-    cursor: pointer;
 }
 
 .episode-navigation button:hover {
     background: #8b5cf6;
 }
 
-.episode-navigation button:disabled {
-    opacity: .35;
-
-    cursor: not-allowed;
-}
-
 .library-tabs {
     display: flex;
-
     gap: 7px;
-
     overflow-x: auto;
-
     padding-bottom: 10px;
-
     margin-bottom: 15px;
 }
 
 .library-tab {
     white-space: nowrap;
-
     border: 1px solid #292a35;
-
     background: #171820;
-
     color: #aaaab5;
-
     padding: 9px 12px;
-
     border-radius: 9px;
-
-    cursor: pointer;
-
     font-size: 12px;
 }
 
 .library-tab.active {
     background: #8b5cf6;
-
     color: white;
-
     border-color: #8b5cf6;
-}
-
-.empty {
-    text-align: center;
-
-    padding: 40px 15px;
-
-    color: #777985;
 }
 
 .bottom-nav {
     position: fixed;
-
     bottom: 0;
-
     left: 0;
-
     right: 0;
-
     height: 65px;
-
     background: #0d0e14;
-
     border-top: 1px solid #20212a;
-
     display: flex;
-
     justify-content: space-around;
-
     align-items: center;
-
     z-index: 30;
 }
 
 .nav-item {
     text-align: center;
-
     color: #777984;
-
     font-size: 11px;
-
     cursor: pointer;
 }
 
 .nav-item div {
     font-size: 21px;
-
     margin-bottom: 3px;
 }
 
 .nav-item.active {
     color: #8b5cf6;
+}
+
+.loading {
+    text-align: center;
+    color: #aaa;
+    padding: 40px 10px;
+    grid-column: 1 / -1;
+}
+
+.error-box {
+    background: #2a1115;
+    border: 1px solid #63232c;
+    color: #ffb5bd;
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.5;
+    grid-column: 1 / -1;
 }
 
 @media (min-width: 700px) {
@@ -655,18 +519,22 @@ main {
 
     .detail-poster {
         width: 190px;
-
         height: 280px;
     }
 
 }
 
-</style>
+@media (max-width: 500px) {
 
+    .episode-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+</style>
 </head>
 
 <body>
-
 
 <header>
 
@@ -686,23 +554,17 @@ main {
 
 <main>
 
-
 <!-- HOME -->
 
-<section
-    id="homePage"
-    class="page active"
->
+<section id="homePage" class="page active">
 
     <section class="hero">
 
-        <h1>
-            Смотри аниме
-        </h1>
+        <h1>Смотри аниме</h1>
 
         <p>
             Находи любимые тайтлы,
-            добавляй их в свою библиотеку
+            добавляй их в библиотеку
             и продолжай просмотр.
         </p>
 
@@ -710,27 +572,21 @@ main {
             id="searchInput"
             class="search"
             type="text"
-            placeholder="🔎  Найти аниме..."
+            placeholder="🔎 Найти аниме..."
             oninput="searchAnime()"
         >
 
     </section>
 
-
     <div class="section-title">
 
-        <h2>
-            Популярное
-        </h2>
+        <h2>Популярное</h2>
 
-        <button
-            onclick="showPage('catalogPage')"
-        >
+        <button onclick="showPage('catalogPage')">
             Все →
         </button>
 
     </div>
-
 
     <div
         id="popularGrid"
@@ -742,28 +598,21 @@ main {
 
 <!-- CATALOG -->
 
-<section
-    id="catalogPage"
-    class="page"
->
+<section id="catalogPage" class="page">
 
     <div class="section-title">
 
-        <h2>
-            Каталог
-        </h2>
+        <h2>Каталог</h2>
 
     </div>
-
 
     <input
         id="catalogSearch"
         class="search"
         type="text"
-        placeholder="🔎  Поиск по каталогу..."
+        placeholder="🔎 Поиск по каталогу..."
         oninput="catalogSearch()"
     >
-
 
     <div
         id="catalogGrid"
@@ -776,19 +625,13 @@ main {
 
 <!-- LIBRARY -->
 
-<section
-    id="favoritesPage"
-    class="page"
->
+<section id="favoritesPage" class="page">
 
     <div class="section-title">
 
-        <h2>
-            Моя библиотека
-        </h2>
+        <h2>Моя библиотека</h2>
 
     </div>
-
 
     <div class="library-tabs">
 
@@ -829,7 +672,6 @@ main {
 
     </div>
 
-
     <div
         id="favoritesGrid"
         class="anime-grid"
@@ -840,32 +682,23 @@ main {
 
 <!-- ANIME -->
 
-<section
-    id="animePage"
-    class="page"
->
+<section id="animePage" class="page">
 
     <button
         class="back"
-        onclick="showPage('homePage')"
+        onclick="showPage('catalogPage')"
     >
         ← Назад
     </button>
 
-
-    <div
-        id="animeDetails"
-    ></div>
+    <div id="animeDetails"></div>
 
 </section>
 
 
 <!-- WATCH -->
 
-<section
-    id="watchPage"
-    class="page"
->
+<section id="watchPage" class="page">
 
     <button
         class="back"
@@ -874,24 +707,20 @@ main {
         ← Назад к аниме
     </button>
 
-
     <div class="watch-container">
 
-
-        <div
-            id="playerContainer"
-            class="video-box"
-        >
+        <div class="video-box">
 
             <video
                 id="videoPlayer"
                 controls
                 playsinline
                 preload="metadata"
-            ></video>
+            >
+                Ваш браузер не поддерживает видео.
+            </video>
 
         </div>
-
 
         <h1
             id="watchTitle"
@@ -900,16 +729,12 @@ main {
             Название аниме
         </h1>
 
-
         <div
             id="watchEpisode"
             class="watch-episode"
         >
             Серия 1
         </div>
-
-
-        <!-- DUB -->
 
         <div class="watch-section">
 
@@ -924,9 +749,6 @@ main {
 
         </div>
 
-
-        <!-- QUALITY -->
-
         <div class="watch-section">
 
             <div class="watch-label">
@@ -940,20 +762,13 @@ main {
 
         </div>
 
-
         <div class="episode-navigation">
 
-            <button
-                id="previousButton"
-                onclick="previousEpisode()"
-            >
+            <button onclick="previousEpisode()">
                 ← Предыдущая
             </button>
 
-            <button
-                id="nextButton"
-                onclick="nextEpisode()"
-            >
+            <button onclick="nextEpisode()">
                 Следующая →
             </button>
 
@@ -963,7 +778,6 @@ main {
 
 </section>
 
-
 </main>
 
 
@@ -971,239 +785,173 @@ main {
 
 <nav class="bottom-nav">
 
-
     <div
         class="nav-item active"
         onclick="showPage('homePage')"
     >
-
-        <div>
-            🏠
-        </div>
-
+        <div>🏠</div>
         Главная
-
     </div>
-
 
     <div
         class="nav-item"
         onclick="showPage('catalogPage')"
     >
-
-        <div>
-            📚
-        </div>
-
+        <div>📚</div>
         Каталог
-
     </div>
-
 
     <div
         class="nav-item"
         onclick="showPage('favoritesPage')"
     >
-
-        <div>
-            ⭐
-        </div>
-
+        <div>⭐</div>
         Библиотека
-
     </div>
-
 
     <div
         class="nav-item"
         onclick="showPage('homePage')"
     >
-
-        <div>
-            👤
-        </div>
-
+        <div>👤</div>
         Профиль
-
     </div>
-
 
 </nav>
 
 
-<!-- SUPABASE -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
 <script>
 
+/* ==========================================
+   НАСТРОЙКА СЕРВЕРА
+========================================== */
 
-/* =====================================================
-   SUPABASE
-===================================================== */
+/*
+   СЮДА ВСТАВЬ АДРЕС ТВОЕГО PYTHON-СЕРВЕРА.
 
+   Например:
 
-const SUPABASE_URL =
-    "https://bugtgzxhteqnihuadpvp.supabase.co";
+   https://mirai-anime-api.onrender.com
 
+   ВАЖНО:
+   Без / в конце.
+*/
 
-const SUPABASE_KEY =
-    "sb_publishable_pKJuxxiLusgjY_ZpYG7PLw_sRCe_gtA";
-
-
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
+const API_URL =
+    "https://YOUR-PYTHON-SERVER.onrender.com";
 
 
-/* =====================================================
-   DATABASE
-===================================================== */
-
+/* ==========================================
+   ДАННЫЕ
+========================================== */
 
 let animeList = [];
-
-let episodeList = [];
-
-
-/* =====================================================
-   LOCAL STORAGE
-===================================================== */
-
-
-let favorites =
-    JSON.parse(
-        localStorage.getItem(
-            "miraiFavorites"
-        )
-    ) || [];
-
-
-let statuses =
-    JSON.parse(
-        localStorage.getItem(
-            "miraiStatuses"
-        )
-    ) || {};
-
-
-let progress =
-    JSON.parse(
-        localStorage.getItem(
-            "miraiProgress"
-        )
-    ) || {};
-
-
-/* =====================================================
-   CURRENT STATE
-===================================================== */
-
 
 let currentAnime = null;
 
 let currentEpisode = 1;
 
-let currentDub = "AniLibria";
+let currentSeason = 1;
+
+let currentDub = "";
 
 let currentQuality = "720p";
 
-let currentEpisodes = [];
+let currentEpisodeData = [];
+
+let favorites =
+    JSON.parse(
+        localStorage.getItem("miraiFavorites")
+    ) || [];
+
+let statuses =
+    JSON.parse(
+        localStorage.getItem("miraiStatuses")
+    ) || {};
+
+let progress =
+    JSON.parse(
+        localStorage.getItem("miraiProgress")
+    ) || {};
 
 
-/* =====================================================
-   LOAD ANIME
-===================================================== */
+/* ==========================================
+   API
+========================================== */
+
+async function apiFetch(path) {
+
+    const response =
+        await fetch(
+            API_URL + path
+        );
+
+    let data = null;
+
+    try {
+
+        data =
+            await response.json();
+
+    }
+
+    catch {
+
+        throw new Error(
+            "Сервер вернул неправильный ответ."
+        );
+
+    }
+
+    if (!response.ok) {
+
+        throw new Error(
+            data.error ||
+            "Ошибка сервера."
+        );
+
+    }
+
+    return data;
+
+}
 
 
-async function loadAnimeFromSupabase() {
+/* ==========================================
+   ЗАГРУЗКА АНИМЕ
+========================================== */
+
+async function loadAnimeFromServer() {
+
+    const popular =
+        document.getElementById(
+            "popularGrid"
+        );
+
+    const catalog =
+        document.getElementById(
+            "catalogGrid"
+        );
+
+    popular.innerHTML =
+        `<div class="loading">
+            ⏳ Загружаем каталог...
+        </div>`;
+
+    catalog.innerHTML =
+        `<div class="loading">
+            ⏳ Загружаем каталог...
+        </div>`;
 
     try {
 
         const result =
-            await supabaseClient
-                .from("Anime sait")
-                .select("*")
-                .order(
-                    "created_at",
-                    {
-                        ascending: false
-                    }
-                );
-
-
-        const data =
-            result.data;
-
-
-        const error =
-            result.error;
-
-
-        if (error) {
-
-            console.error(
-                "Anime Supabase error:",
-                error
+            await apiFetch(
+                "/api/anime"
             );
-
-            showDatabaseError(
-                error
-            );
-
-            return;
-
-        }
-
 
         animeList =
-            (data || []).map(
-                anime => ({
-
-                    id:
-                        anime.id,
-
-                    title:
-                        anime.title ||
-                        "Без названия",
-
-                    year:
-                        anime.year ||
-                        0,
-
-                    episodes:
-                        Number(
-                            anime.episodes
-                        ) || 0,
-
-                    rating:
-                        anime.rating ||
-                        0,
-
-                    genres:
-                        parseGenres(
-                            anime.genres
-                        ),
-
-                    description:
-                        anime.description ||
-                        "",
-
-                    poster:
-                        anime.poster ||
-                        "",
-
-                    popular:
-                        anime.popular === true
-
-                })
-            );
-
-
-        await loadEpisodesFromSupabase();
+            result.anime || [];
 
         loadAll();
 
@@ -1211,12 +959,10 @@ async function loadAnimeFromSupabase() {
 
     catch (error) {
 
-        console.error(
-            error
-        );
+        console.error(error);
 
         showDatabaseError(
-            error
+            error.message
         );
 
     }
@@ -1224,242 +970,97 @@ async function loadAnimeFromSupabase() {
 }
 
 
-/* =====================================================
-   LOAD EPISODES
-===================================================== */
-
-
-async function loadEpisodesFromSupabase() {
-
-    try {
-
-        const result =
-            await supabaseClient
-                .from("episodes")
-                .select("*")
-                .order(
-                    "episode",
-                    {
-                        ascending: true
-                    }
-                );
-
-
-        const data =
-            result.data;
-
-
-        const error =
-            result.error;
-
-
-        if (error) {
-
-            console.error(
-                "Episodes Supabase error:",
-                error
-            );
-
-            episodeList = [];
-
-            return;
-
-        }
-
-
-        episodeList =
-            data || [];
-
-
-        console.log(
-            "Episodes loaded:",
-            episodeList
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            error
-        );
-
-        episodeList = [];
-
-    }
-
-}
-
-
-/* =====================================================
-   GENRES
-===================================================== */
-
-
-function parseGenres(
-    genres
-) {
-
-    if (
-        Array.isArray(
-            genres
-        )
-    ) {
-
-        return genres;
-
-    }
-
-
-    if (!genres) {
-
-        return [];
-
-    }
-
-
-    return String(
-        genres
-    )
-        .split(",")
-        .map(
-            genre =>
-                genre.trim()
-        )
-        .filter(
-            Boolean
-        );
-
-}
-
-
-/* =====================================================
-   DATABASE ERROR
-===================================================== */
-
+/* ==========================================
+   ОШИБКА
+========================================== */
 
 function showDatabaseError(
-    error
+    message
 ) {
 
-    const message = `
+    const html = `
 
-        <div class="empty">
+        <div class="error-box">
 
-            ❌ Ошибка Supabase
-
-            <br><br>
-
-            Сайт подключился к Supabase,
-            но Supabase вернул ошибку.
+            ❌ Ошибка подключения
 
             <br><br>
 
-            <small>
+            ${escapeHTML(message)}
 
-                ${escapeHTML(
-                    error?.message ||
-                    "Неизвестная ошибка"
-                )}
+            <br><br>
 
-            </small>
+            Проверь адрес Python-сервера
+            в переменной API_URL.
 
         </div>
 
     `;
 
+    document.getElementById(
+        "popularGrid"
+    ).innerHTML = html;
 
-    const popular =
-        document.getElementById(
-            "popularGrid"
-        );
-
-
-    const catalog =
-        document.getElementById(
-            "catalogGrid"
-        );
-
-
-    if (popular) {
-
-        popular.innerHTML =
-            message;
-
-    }
-
-
-    if (catalog) {
-
-        catalog.innerHTML =
-            message;
-
-    }
+    document.getElementById(
+        "catalogGrid"
+    ).innerHTML = html;
 
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* ==========================================
+   ESCAPE
+========================================== */
 
-
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
 
     return String(
         value ?? ""
     )
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
 
-/* =====================================================
+/* ==========================================
+   GENRES
+========================================== */
+
+function parseGenres(genres) {
+
+    if (Array.isArray(genres)) {
+        return genres;
+    }
+
+    if (!genres) {
+        return [];
+    }
+
+    return String(genres)
+        .split(",")
+        .map(x => x.trim())
+        .filter(Boolean);
+
+}
+
+
+/* ==========================================
    CARD
-===================================================== */
+========================================== */
 
-
-function createCard(
-    anime
-) {
+function createCard(anime) {
 
     const status =
-        statuses[
-            anime.id
-        ] || "";
-
+        statuses[anime.id] || "";
 
     const watchedEpisode =
-        Number(
-            progress[
-                anime.id
-            ]
-        ) || 0;
-
+        progress[anime.id] || 0;
 
     let progressHTML = "";
-
 
     if (
         watchedEpisode > 0 &&
@@ -1476,7 +1077,6 @@ function createCard(
                 )
             );
 
-
         progressHTML = `
 
             <div class="progress-container">
@@ -1489,7 +1089,6 @@ function createCard(
                     ${anime.episodes}
 
                 </div>
-
 
                 <div class="progress-bar">
 
@@ -1505,7 +1104,6 @@ function createCard(
         `;
 
     }
-
 
     const statusNames = {
 
@@ -1523,14 +1121,11 @@ function createCard(
 
     };
 
-
     return `
 
         <div
             class="anime-card"
-            onclick="openAnime(${Number(
-                anime.id
-            )})"
+            onclick="openAnime(${Number(anime.id)})"
         >
 
             ${
@@ -1541,12 +1136,9 @@ function createCard(
                 `
                 <img
                     class="poster"
-                    src="${escapeHTML(
-                        anime.poster
-                    )}"
-                    alt="${escapeHTML(
-                        anime.title
-                    )}"
+                    src="${escapeHTML(anime.poster)}"
+                    alt="${escapeHTML(anime.title)}"
+                    loading="lazy"
                 >
                 `
 
@@ -1559,37 +1151,32 @@ function createCard(
                 `
             }
 
-
             <div class="anime-info">
 
                 <div class="anime-title">
 
-                    ${escapeHTML(
-                        anime.title
-                    )}
+                    ${escapeHTML(anime.title)}
 
                 </div>
 
-
                 <div class="anime-meta">
 
-                    ${anime.year}
+                    ${escapeHTML(anime.year)}
 
                     •
 
-                    ${anime.episodes}
+                    ${escapeHTML(anime.episodes)}
                     серий
 
                     •
 
                     <span class="rating">
 
-                        ★ ${anime.rating}
+                        ★ ${escapeHTML(anime.rating)}
 
                     </span>
 
                 </div>
-
 
                 ${
                     status
@@ -1600,9 +1187,8 @@ function createCard(
                     <span class="status-label">
 
                         ${
-                            statusNames[
-                                status
-                            ] || status
+                            statusNames[status] ||
+                            escapeHTML(status)
                         }
 
                     </span>
@@ -1612,7 +1198,6 @@ function createCard(
 
                     ""
                 }
-
 
                 ${progressHTML}
 
@@ -1625,10 +1210,9 @@ function createCard(
 }
 
 
-/* =====================================================
-   POPULAR
-===================================================== */
-
+/* ==========================================
+   ПОПУЛЯРНОЕ
+========================================== */
 
 function loadPopular() {
 
@@ -1637,16 +1221,13 @@ function loadPopular() {
             "popularGrid"
         );
 
-
     if (!grid) return;
-
 
     const popular =
         animeList.filter(
             anime =>
-                anime.popular
+                anime.popular === true
         );
-
 
     if (!popular.length) {
 
@@ -1664,21 +1245,17 @@ function loadPopular() {
 
     }
 
-
     grid.innerHTML =
         popular
-            .map(
-                createCard
-            )
+            .map(createCard)
             .join("");
 
 }
 
 
-/* =====================================================
-   CATALOG
-===================================================== */
-
+/* ==========================================
+   КАТАЛОГ
+========================================== */
 
 function loadCatalog(
     list = animeList
@@ -1689,9 +1266,7 @@ function loadCatalog(
             "catalogGrid"
         );
 
-
     if (!grid) return;
-
 
     if (!list.length) {
 
@@ -1709,21 +1284,17 @@ function loadCatalog(
 
     }
 
-
     grid.innerHTML =
         list
-            .map(
-                createCard
-            )
+            .map(createCard)
             .join("");
 
 }
 
 
-/* =====================================================
-   HOME SEARCH
-===================================================== */
-
+/* ==========================================
+   ПОИСК
+========================================== */
 
 function searchAnime() {
 
@@ -1732,15 +1303,10 @@ function searchAnime() {
             "searchInput"
         );
 
-
-    if (!input) return;
-
-
     const value =
         input.value
             .toLowerCase()
             .trim();
-
 
     if (!value) {
 
@@ -1750,23 +1316,18 @@ function searchAnime() {
 
     }
 
-
     const results =
         animeList.filter(
             anime =>
-                anime.title
+                String(anime.title)
                     .toLowerCase()
-                    .includes(
-                        value
-                    )
+                    .includes(value)
         );
-
 
     const grid =
         document.getElementById(
             "popularGrid"
         );
-
 
     if (!results.length) {
 
@@ -1784,21 +1345,17 @@ function searchAnime() {
 
     }
 
-
     grid.innerHTML =
         results
-            .map(
-                createCard
-            )
+            .map(createCard)
             .join("");
 
 }
 
 
-/* =====================================================
-   CATALOG SEARCH
-===================================================== */
-
+/* ==========================================
+   ПОИСК КАТАЛОГА
+========================================== */
 
 function catalogSearch() {
 
@@ -1807,42 +1364,29 @@ function catalogSearch() {
             "catalogSearch"
         );
 
-
-    if (!input) return;
-
-
     const value =
         input.value
             .toLowerCase()
             .trim();
 
-
     const results =
         animeList.filter(
             anime =>
-                anime.title
+                String(anime.title)
                     .toLowerCase()
-                    .includes(
-                        value
-                    )
+                    .includes(value)
         );
 
-
-    loadCatalog(
-        results
-    );
+    loadCatalog(results);
 
 }
 
 
-/* =====================================================
-   OPEN ANIME
-===================================================== */
+/* ==========================================
+   ОТКРЫТИЕ АНИМЕ
+========================================== */
 
-
-function openAnime(
-    id
-) {
+async function openAnime(id) {
 
     const anime =
         animeList.find(
@@ -1851,213 +1395,26 @@ function openAnime(
                 Number(id)
         );
 
-
     if (!anime) return;
-
 
     currentAnime =
         anime;
-
 
     const favorite =
         favorites.includes(
             Number(anime.id)
         );
 
-
     const currentStatus =
-        statuses[
-            anime.id
-        ] || "";
+        statuses[anime.id] || "";
 
-
-    const animeEpisodes =
-        episodeList.filter(
-            ep =>
-                Number(ep.anime_id) ===
-                Number(anime.id)
-        );
-
-
-    let seasons = [];
-
-
-    animeEpisodes.forEach(
-        ep => {
-
-            const season =
-                Number(
-                    ep.season
-                ) || 1;
-
-
-            if (
-                !seasons.includes(
-                    season
-                )
-            ) {
-
-                seasons.push(
-                    season
-                );
-
-            }
-
-        }
-    );
-
-
-    if (!seasons.length) {
-
-        seasons = [1];
-
-    }
-
-
-    seasons.sort(
-        (a, b) =>
-            a - b
-    );
-
-
-    let seasonsHTML = "";
-
-
-    seasons.forEach(
-        season => {
-
-            const seasonEpisodes =
-                animeEpisodes.filter(
-                    ep =>
-                        Number(
-                            ep.season
-                        ) ===
-                        Number(
-                            season
-                        )
-                );
-
-
-            seasonEpisodes.sort(
-                (a, b) =>
-                    Number(a.episode) -
-                    Number(b.episode)
-            );
-
-
-            seasonsHTML += `
-
-                <h2 class="season-title">
-
-                    Сезон ${season}
-
-                </h2>
-
-
-                <div class="episode-list">
-
-            `;
-
-
-            if (
-                seasonEpisodes.length
-            ) {
-
-                seasonEpisodes.forEach(
-                    ep => {
-
-                        const epNumber =
-                            Number(
-                                ep.episode
-                            );
-
-
-                        const watched =
-                            Number(
-                                progress[
-                                    anime.id
-                                ]
-                            ) >=
-                            epNumber;
-
-
-                        seasonsHTML += `
-
-                            <button
-                                class="
-                                    episode
-                                    ${
-                                        watched
-                                        ? "watched"
-                                        : ""
-                                    }
-                                "
-                                onclick="
-                                    playEpisode(
-                                        ${Number(
-                                            anime.id
-                                        )},
-                                        ${epNumber},
-                                        ${Number(
-                                            season
-                                        )}
-                                    )
-                                "
-                            >
-
-                                ${
-                                    watched
-                                    ? "✓ "
-                                    : ""
-                                }
-
-                                Серия
-                                ${epNumber}
-
-                            </button>
-
-                        `;
-
-                    }
-                );
-
-            }
-
-            else {
-
-                seasonsHTML += `
-
-                    <div class="empty">
-
-                        В этом сезоне пока нет серий.
-
-                    </div>
-
-                `;
-
-            }
-
-
-            seasonsHTML += `
-
-                </div>
-
-            `;
-
-        }
-    );
-
-
-    document
-        .getElementById(
-            "animeDetails"
-        )
-        .innerHTML = `
+    document.getElementById(
+        "animeDetails"
+    ).innerHTML = `
 
         <div class="anime-detail">
 
             <div class="detail-top">
-
 
                 ${
                     anime.poster
@@ -2067,74 +1424,57 @@ function openAnime(
                     `
                     <img
                         class="detail-poster"
-                        src="${escapeHTML(
-                            anime.poster
-                        )}"
-                        alt="${escapeHTML(
-                            anime.title
-                        )}"
+                        src="${escapeHTML(anime.poster)}"
+                        alt="${escapeHTML(anime.title)}"
                     >
                     `
 
                     :
 
                     `
-                    <div
-                        class="
-                            detail-poster
-                            poster-placeholder
-                        "
-                    >
+                    <div class="
+                        detail-poster
+                        poster-placeholder
+                    ">
                         🎬
                     </div>
                     `
                 }
 
-
                 <h1 class="detail-title">
 
-                    ${escapeHTML(
-                        anime.title
-                    )}
+                    ${escapeHTML(anime.title)}
 
                 </h1>
 
-
                 <div class="anime-meta">
 
-                    ${anime.year}
+                    ${escapeHTML(anime.year)}
 
                     •
 
-                    ${anime.episodes}
+                    ${escapeHTML(anime.episodes)}
                     серий
 
                     •
 
                     <span class="rating">
 
-                        ★ ${anime.rating}
+                        ★ ${escapeHTML(anime.rating)}
 
                     </span>
 
                 </div>
 
-
                 <div class="tags">
 
                     ${
-                        anime.genres
+                        parseGenres(anime.genres)
                             .map(
                                 genre => `
-
                                     <span class="tag">
-
-                                        ${escapeHTML(
-                                            genre
-                                        )}
-
+                                        ${escapeHTML(genre)}
                                     </span>
-
                                 `
                             )
                             .join("")
@@ -2142,15 +1482,11 @@ function openAnime(
 
                 </div>
 
-
                 <p class="detail-description">
 
-                    ${escapeHTML(
-                        anime.description
-                    )}
+                    ${escapeHTML(anime.description)}
 
                 </p>
-
 
                 <div class="status-title">
 
@@ -2158,120 +1494,79 @@ function openAnime(
 
                 </div>
 
-
                 <div class="status-buttons">
 
-
                     <button
-                        class="
-                            status-btn
-                            ${
-                                currentStatus ===
-                                "watching"
-                                ? "active"
-                                : ""
-                            }
-                        "
+                        class="status-btn ${
+                            currentStatus === "watching"
+                            ? "active"
+                            : ""
+                        }"
                         onclick="
                             setStatus(
-                                ${Number(
-                                    anime.id
-                                )},
+                                ${Number(anime.id)},
                                 'watching'
                             )
                         "
                     >
-
                         👀 Смотрю
-
                     </button>
 
-
                     <button
-                        class="
-                            status-btn
-                            ${
-                                currentStatus ===
-                                "watched"
-                                ? "active"
-                                : ""
-                            }
-                        "
+                        class="status-btn ${
+                            currentStatus === "watched"
+                            ? "active"
+                            : ""
+                        }"
                         onclick="
                             setStatus(
-                                ${Number(
-                                    anime.id
-                                )},
+                                ${Number(anime.id)},
                                 'watched'
                             )
                         "
                     >
-
                         ✅ Просмотрено
-
                     </button>
 
-
                     <button
-                        class="
-                            status-btn
-                            ${
-                                currentStatus ===
-                                "planned"
-                                ? "active"
-                                : ""
-                            }
-                        "
+                        class="status-btn ${
+                            currentStatus === "planned"
+                            ? "active"
+                            : ""
+                        }"
                         onclick="
                             setStatus(
-                                ${Number(
-                                    anime.id
-                                )},
+                                ${Number(anime.id)},
                                 'planned'
                             )
                         "
                     >
-
                         ⏳ Планирую
-
                     </button>
 
-
                     <button
-                        class="
-                            status-btn
-                            ${
-                                currentStatus ===
-                                "dropped"
-                                ? "active"
-                                : ""
-                            }
-                        "
+                        class="status-btn ${
+                            currentStatus === "dropped"
+                            ? "active"
+                            : ""
+                        }"
                         onclick="
                             setStatus(
-                                ${Number(
-                                    anime.id
-                                )},
+                                ${Number(anime.id)},
                                 'dropped'
                             )
                         "
                     >
-
                         ❌ Бросил
-
                     </button>
 
-
                 </div>
-
 
                 <button
                     class="favorite-btn"
                     onclick="
                         toggleFavorite(
-                            ${Number(
-                                anime.id
-                            )}
+                            ${Number(anime.id)}
                         )
                     "
                 >
@@ -2286,83 +1581,15 @@ function openAnime(
 
                 </button>
 
+                <div id="episodesContainer">
 
-                ${
-                    progress[
-                        anime.id
-                    ]
+                    <div class="loading">
 
-                    ?
-
-                    `
-
-                    <div
-                        class="progress-container"
-                        style="margin-top:20px;"
-                    >
-
-                        <div class="progress-text">
-
-                            Ты посмотрел:
-
-                            ${
-                                progress[
-                                    anime.id
-                                ]
-                            }
-
-                            из
-
-                            ${anime.episodes}
-
-                            серий
-
-                        </div>
-
-
-                        <div class="progress-bar">
-
-                            <div
-                                class="progress-fill"
-                                style="
-                                    width:
-                                    ${
-                                        anime.episodes
-
-                                        ?
-
-                                        Math.min(
-                                            100,
-                                            Math.round(
-                                                progress[
-                                                    anime.id
-                                                ] /
-                                                anime.episodes *
-                                                100
-                                            )
-                                        )
-
-                                        :
-
-                                        0
-                                    }%;
-                                "
-                            ></div>
-
-                        </div>
+                        ⏳ Загружаем серии...
 
                     </div>
 
-                    `
-
-                    :
-
-                    ""
-                }
-
-
-                ${seasonsHTML}
-
+                </div>
 
             </div>
 
@@ -2370,52 +1597,765 @@ function openAnime(
 
     `;
 
+    showPage("animePage");
 
-    showPage(
-        "animePage"
+    await loadEpisodesForAnime(
+        anime.id
     );
 
 }
 
 
-/* =====================================================
-   STATUS
-===================================================== */
+/* ==========================================
+   ЗАГРУЗКА СЕРИЙ
+========================================== */
 
+async function loadEpisodesForAnime(
+    animeId
+) {
+
+    const container =
+        document.getElementById(
+            "episodesContainer"
+        );
+
+    if (!container) return;
+
+    try {
+
+        const result =
+            await apiFetch(
+                "/api/episodes?anime_id=" +
+                encodeURIComponent(animeId)
+            );
+
+        currentEpisodeData =
+            result.episodes || [];
+
+        renderEpisodes(
+            currentEpisodeData
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        container.innerHTML = `
+
+            <div class="error-box">
+
+                ❌ Не удалось загрузить серии.
+
+                <br><br>
+
+                ${escapeHTML(error.message)}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ==========================================
+   ОТОБРАЖЕНИЕ СЕРИЙ
+========================================== */
+
+function renderEpisodes(
+    episodes
+) {
+
+    const container =
+        document.getElementById(
+            "episodesContainer"
+        );
+
+    if (!container) return;
+
+    if (!episodes.length) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                Пока нет добавленных серий.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    const seasons = {};
+
+    episodes.forEach(
+        item => {
+
+            const season =
+                Number(item.season) || 1;
+
+            if (!seasons[season]) {
+
+                seasons[season] = [];
+
+            }
+
+            seasons[season].push(item);
+
+        }
+    );
+
+    const seasonNumbers =
+        Object.keys(seasons)
+            .map(Number)
+            .sort(
+                (a, b) =>
+                    a - b
+            );
+
+    container.innerHTML =
+        seasonNumbers
+            .map(
+                season => {
+
+                    const seasonEpisodes =
+                        seasons[season]
+                            .sort(
+                                (a, b) =>
+                                    Number(a.episode) -
+                                    Number(b.episode)
+                            );
+
+                    return `
+
+                        <div class="season-block">
+
+                            <h2 class="season-title">
+
+                                Сезон ${season}
+
+                            </h2>
+
+                            <div class="episode-list">
+
+                                ${
+                                    seasonEpisodes
+                                        .map(
+                                            item => {
+
+                                                const watched =
+                                                    progress[
+                                                        currentAnime.id
+                                                    ] >=
+                                                    Number(
+                                                        item.episode
+                                                    );
+
+                                                return `
+
+                                                    <button
+                                                        class="
+                                                            episode
+                                                            ${
+                                                                watched
+                                                                ?
+                                                                "watched"
+                                                                :
+                                                                ""
+                                                            }
+                                                        "
+                                                        onclick="
+                                                            playEpisode(
+                                                                ${Number(currentAnime.id)},
+                                                                ${Number(item.episode)},
+                                                                ${Number(item.season)}
+                                                            )
+                                                        "
+                                                    >
+
+                                                        ${
+                                                            watched
+                                                            ?
+                                                            "✓ "
+                                                            :
+                                                            ""
+                                                        }
+
+                                                        Серия
+                                                        ${Number(item.episode)}
+
+                                                    </button>
+
+                                                `;
+
+                                            }
+                                        )
+                                        .join("")
+                                }
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* ==========================================
+   СТАТУС
+========================================== */
 
 function setStatus(
     id,
     status
 ) {
 
-    statuses[
-        id
-    ] =
+    statuses[id] =
         status;
-
 
     localStorage.setItem(
         "miraiStatuses",
-        JSON.stringify(
-            statuses
-        )
+        JSON.stringify(statuses)
     );
 
-
-    openAnime(
-        id
-    );
-
+    openAnime(id);
 
     loadAll();
 
 }
 
 
-/* =====================================================
-   LIBRARY
-===================================================== */
+/* ==========================================
+   ИЗБРАННОЕ
+========================================== */
 
+function toggleFavorite(
+    id
+) {
+
+    id =
+        Number(id);
+
+    if (
+        favorites.includes(id)
+    ) {
+
+        favorites =
+            favorites.filter(
+                x =>
+                    Number(x) !== id
+            );
+
+    }
+
+    else {
+
+        favorites.push(id);
+
+    }
+
+    localStorage.setItem(
+        "miraiFavorites",
+        JSON.stringify(favorites)
+    );
+
+    openAnime(id);
+
+    loadAll();
+
+}
+
+
+/* ==========================================
+   PLAY EPISODE
+========================================== */
+
+async function playEpisode(
+    animeId,
+    episode,
+    season
+) {
+
+    currentAnime =
+        animeList.find(
+            anime =>
+                Number(anime.id) ===
+                Number(animeId)
+        );
+
+    if (!currentAnime) return;
+
+    currentEpisode =
+        Number(episode);
+
+    currentSeason =
+        Number(season) || 1;
+
+    progress[
+        currentAnime.id
+    ] =
+        currentEpisode;
+
+    localStorage.setItem(
+        "miraiProgress",
+        JSON.stringify(progress)
+    );
+
+    if (
+        !statuses[currentAnime.id] ||
+        statuses[currentAnime.id] === "planned"
+    ) {
+
+        statuses[
+            currentAnime.id
+        ] =
+            "watching";
+
+        localStorage.setItem(
+            "miraiStatuses",
+            JSON.stringify(statuses)
+        );
+
+    }
+
+    document.getElementById(
+        "watchTitle"
+    ).textContent =
+        currentAnime.title;
+
+    document.getElementById(
+        "watchEpisode"
+    ).textContent =
+        "Сезон " +
+        currentSeason +
+        " • Серия " +
+        currentEpisode;
+
+    showPage("watchPage");
+
+    await loadEpisodePlayer();
+
+    loadAll();
+
+}
+
+
+/* ==========================================
+   ПОЛУЧИТЬ ДАННЫЕ СЕРИИ
+========================================== */
+
+async function loadEpisodePlayer() {
+
+    const player =
+        document.getElementById(
+            "videoPlayer"
+        );
+
+    try {
+
+        const result =
+            await apiFetch(
+                "/api/episode" +
+                "?anime_id=" +
+                encodeURIComponent(
+                    currentAnime.id
+                ) +
+                "&season=" +
+                encodeURIComponent(
+                    currentSeason
+                ) +
+                "&episode=" +
+                encodeURIComponent(
+                    currentEpisode
+                )
+            );
+
+        currentEpisodeData =
+            result.episodes || [];
+
+        renderPlayerChoices();
+
+        if (!currentEpisodeData.length) {
+
+            player.removeAttribute(
+                "src"
+            );
+
+            player.load();
+
+            return;
+
+        }
+
+        const matchingDub =
+            currentEpisodeData.find(
+                x =>
+                    x.dub === currentDub
+            );
+
+        if (matchingDub) {
+
+            currentDub =
+                matchingDub.dub;
+
+        }
+
+        else {
+
+            currentDub =
+                currentEpisodeData[0].dub || "";
+
+        }
+
+        const matchingQuality =
+            currentEpisodeData.find(
+                x =>
+                    x.dub === currentDub &&
+                    x.quality === currentQuality
+            );
+
+        if (matchingQuality) {
+
+            currentQuality =
+                matchingQuality.quality;
+
+        }
+
+        else {
+
+            const availableQuality =
+                currentEpisodeData.find(
+                    x =>
+                        x.dub === currentDub
+                );
+
+            currentQuality =
+                availableQuality
+                ?
+                availableQuality.quality
+                :
+                "";
+
+        }
+
+        updateVideoSource();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        player.removeAttribute(
+            "src"
+        );
+
+        player.load();
+
+        document.getElementById(
+            "watchEpisode"
+        ).textContent =
+            "Ошибка загрузки серии: " +
+            error.message;
+
+    }
+
+}
+
+
+/* ==========================================
+   ВЫБОРЫ
+========================================== */
+
+function renderPlayerChoices() {
+
+    const dubContainer =
+        document.getElementById(
+            "dubChoices"
+        );
+
+    const qualityContainer =
+        document.getElementById(
+            "qualityChoices"
+        );
+
+    const dubs =
+        [
+            ...new Set(
+                currentEpisodeData
+                    .map(x => x.dub)
+                    .filter(Boolean)
+            )
+        ];
+
+    const qualities =
+        [
+            ...new Set(
+                currentEpisodeData
+                    .map(x => x.quality)
+                    .filter(Boolean)
+            )
+        ];
+
+    dubContainer.innerHTML =
+        dubs.length
+        ?
+
+        dubs
+            .map(
+                dub => `
+
+                    <button
+                        class="choice ${
+                            dub === currentDub
+                            ? "active"
+                            : ""
+                        }"
+                        onclick="
+                            selectDub(
+                                '${escapeJS(dub)}'
+                            )
+                        "
+                    >
+                        ${escapeHTML(dub)}
+                    </button>
+
+                `
+            )
+            .join("")
+
+        :
+
+        `<span class="anime-meta">
+            Нет доступных озвучек
+        </span>`;
+
+    qualityContainer.innerHTML =
+        qualities.length
+        ?
+
+        qualities
+            .map(
+                quality => `
+
+                    <button
+                        class="choice ${
+                            quality === currentQuality
+                            ? "active"
+                            : ""
+                        }"
+                        onclick="
+                            selectQuality(
+                                '${escapeJS(quality)}'
+                            )
+                        "
+                    >
+                        ${escapeHTML(quality)}
+                    </button>
+
+                `
+            )
+            .join("")
+
+        :
+
+        `<span class="anime-meta">
+            Нет доступного качества
+        </span>`;
+
+}
+
+
+/* ==========================================
+   JS ESCAPE
+========================================== */
+
+function escapeJS(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, "\\n")
+    .replace(/\r/g, "\\r");
+
+}
+
+
+/* ==========================================
+   ВЫБОР ОЗВУЧКИ
+========================================== */
+
+async function selectDub(
+    dub
+) {
+
+    currentDub =
+        dub;
+
+    renderPlayerChoices();
+
+    updateVideoSource();
+
+}
+
+
+/* ==========================================
+   ВЫБОР КАЧЕСТВА
+========================================== */
+
+async function selectQuality(
+    quality
+) {
+
+    currentQuality =
+        quality;
+
+    renderPlayerChoices();
+
+    updateVideoSource();
+
+}
+
+
+/* ==========================================
+   ОБНОВИТЬ VIDEO
+========================================== */
+
+function updateVideoSource() {
+
+    const player =
+        document.getElementById(
+            "videoPlayer"
+        );
+
+    const item =
+        currentEpisodeData.find(
+            x =>
+                x.dub === currentDub &&
+                x.quality === currentQuality
+        );
+
+    if (!item) {
+
+        player.removeAttribute(
+            "src"
+        );
+
+        player.load();
+
+        document.getElementById(
+            "watchEpisode"
+        ).textContent =
+            "Сезон " +
+            currentSeason +
+            " • Серия " +
+            currentEpisode +
+            " • Выбранное качество недоступно";
+
+        return;
+
+    }
+
+    if (!item.video_url) {
+
+        player.removeAttribute(
+            "src"
+        );
+
+        player.load();
+
+        return;
+
+    }
+
+    player.src =
+        item.video_url;
+
+    player.load();
+
+    document.getElementById(
+        "watchEpisode"
+    ).textContent =
+        "Сезон " +
+        currentSeason +
+        " • Серия " +
+        currentEpisode +
+        " • " +
+        (item.dub || "") +
+        " • " +
+        (item.quality || "");
+
+}
+
+
+/* ==========================================
+   PREVIOUS
+========================================== */
+
+async function previousEpisode() {
+
+    if (!currentAnime) return;
+
+    if (currentEpisode <= 1) return;
+
+    currentEpisode--;
+
+    await playEpisode(
+        currentAnime.id,
+        currentEpisode,
+        currentSeason
+    );
+
+}
+
+
+/* ==========================================
+   NEXT
+========================================== */
+
+async function nextEpisode() {
+
+    if (!currentAnime) return;
+
+    if (
+        currentEpisode >=
+        Number(currentAnime.episodes)
+    ) {
+
+        return;
+
+    }
+
+    currentEpisode++;
+
+    await playEpisode(
+        currentAnime.id,
+        currentEpisode,
+        currentSeason
+    );
+
+}
+
+
+/* ==========================================
+   LIBRARY
+========================================== */
 
 function filterLibrary(
     filter,
@@ -2423,7 +2363,6 @@ function filterLibrary(
 ) {
 
     if (!button) return;
-
 
     document
         .querySelectorAll(
@@ -2436,14 +2375,11 @@ function filterLibrary(
                 )
         );
 
-
     button.classList.add(
         "active"
     );
 
-
     let list = [];
-
 
     if (
         filter === "all"
@@ -2453,14 +2389,10 @@ function filterLibrary(
             animeList.filter(
                 anime =>
                     favorites.includes(
-                        Number(
-                            anime.id
-                        )
+                        Number(anime.id)
                     )
                     ||
-                    statuses[
-                        anime.id
-                    ]
+                    statuses[anime.id]
             );
 
     }
@@ -2470,20 +2402,16 @@ function filterLibrary(
         list =
             animeList.filter(
                 anime =>
-                    statuses[
-                        anime.id
-                    ] ===
+                    statuses[anime.id] ===
                     filter
             );
 
     }
 
-
     const grid =
         document.getElementById(
             "favoritesGrid"
         );
-
 
     if (!list.length) {
 
@@ -2501,961 +2429,17 @@ function filterLibrary(
 
     }
 
-
     grid.innerHTML =
         list
-            .map(
-                createCard
-            )
+            .map(createCard)
             .join("");
 
 }
 
 
-/* =====================================================
-   FAVORITE
-===================================================== */
-
-
-function toggleFavorite(
-    id
-) {
-
-    id =
-        Number(id);
-
-
-    if (
-        favorites.includes(
-            id
-        )
-    ) {
-
-        favorites =
-            favorites.filter(
-                x =>
-                    Number(x) !==
-                    id
-            );
-
-    }
-
-    else {
-
-        favorites.push(
-            id
-        );
-
-    }
-
-
-    localStorage.setItem(
-        "miraiFavorites",
-        JSON.stringify(
-            favorites
-        )
-    );
-
-
-    openAnime(
-        id
-    );
-
-
-    loadAll();
-
-}
-
-
-/* =====================================================
-   GET EPISODES FOR CURRENT ANIME
-===================================================== */
-
-
-function getEpisodesForAnime(
-    animeId
-) {
-
-    return episodeList
-        .filter(
-            ep =>
-                Number(
-                    ep.anime_id
-                ) ===
-                Number(
-                    animeId
-                )
-        )
-        .sort(
-            (a, b) => {
-
-                const seasonA =
-                    Number(
-                        a.season
-                    ) || 1;
-
-                const seasonB =
-                    Number(
-                        b.season
-                    ) || 1;
-
-                if (
-                    seasonA !==
-                    seasonB
-                ) {
-
-                    return (
-                        seasonA -
-                        seasonB
-                    );
-
-                }
-
-                return (
-                    Number(
-                        a.episode
-                    ) -
-                    Number(
-                        b.episode
-                    )
-                );
-
-            }
-        );
-
-}
-
-
-/* =====================================================
-   PLAY EPISODE
-===================================================== */
-
-
-function playEpisode(
-    animeId,
-    episode,
-    season = 1
-) {
-
-    currentAnime =
-        animeList.find(
-            anime =>
-                Number(
-                    anime.id
-                ) ===
-                Number(
-                    animeId
-                )
-        );
-
-
-    if (!currentAnime) {
-
-        return;
-
-    }
-
-
-    currentEpisode =
-        Number(
-            episode
-        );
-
-
-    currentEpisodes =
-        getEpisodesForAnime(
-            animeId
-        );
-
-
-    const episodeExists =
-        currentEpisodes.some(
-            ep =>
-                Number(
-                    ep.season
-                ) ===
-                Number(
-                    season
-                )
-                &&
-                Number(
-                    ep.episode
-                ) ===
-                Number(
-                    episode
-                )
-        );
-
-
-    if (!episodeExists) {
-
-        alert(
-            "Эта серия пока не добавлена в Supabase."
-        );
-
-        return;
-
-    }
-
-
-    progress[
-        currentAnime.id
-    ] =
-        currentEpisode;
-
-
-    localStorage.setItem(
-        "miraiProgress",
-        JSON.stringify(
-            progress
-        )
-    );
-
-
-    if (
-        !statuses[
-            currentAnime.id
-        ]
-        ||
-        statuses[
-            currentAnime.id
-        ] ===
-        "planned"
-    ) {
-
-        statuses[
-            currentAnime.id
-        ] =
-            "watching";
-
-
-        localStorage.setItem(
-            "miraiStatuses",
-            JSON.stringify(
-                statuses
-            )
-        );
-
-    }
-
-
-    document
-        .getElementById(
-            "watchTitle"
-        )
-        .textContent =
-        currentAnime.title;
-
-
-    document
-        .getElementById(
-            "watchEpisode"
-        )
-        .textContent =
-        `Сезон ${season} • Серия ${episode}`;
-
-
-    showPage(
-        "watchPage"
-    );
-
-
-    renderWatchChoices(
-        season,
-        episode
-    );
-
-
-    updateNavigationButtons(
-        season,
-        episode
-    );
-
-
-    loadVideo(
-        season,
-        episode
-    );
-
-
-    loadAll();
-
-}
-
-
-/* =====================================================
-   RENDER DUB / QUALITY
-===================================================== */
-
-
-function renderWatchChoices(
-    season,
-    episode
-) {
-
-    const matching =
-        currentEpisodes.filter(
-            ep =>
-                Number(
-                    ep.season
-                ) ===
-                Number(
-                    season
-                )
-                &&
-                Number(
-                    ep.episode
-                ) ===
-                Number(
-                    episode
-                )
-        );
-
-
-    const dubs = [];
-
-
-    matching.forEach(
-        ep => {
-
-            const dub =
-                ep.dub ||
-                "Без озвучки";
-
-
-            if (
-                !dubs.includes(
-                    dub
-                )
-            ) {
-
-                dubs.push(
-                    dub
-                );
-
-            }
-
-        }
-    );
-
-
-    if (!dubs.length) {
-
-        dubs.push(
-            "AniLibria"
-        );
-
-    }
-
-
-    if (
-        !dubs.includes(
-            currentDub
-        )
-    ) {
-
-        currentDub =
-            dubs[0];
-
-    }
-
-
-    const dubContainer =
-        document.getElementById(
-            "dubChoices"
-        );
-
-
-    dubContainer.innerHTML =
-        dubs
-            .map(
-                dub => `
-
-                    <button
-                        class="
-                            choice
-                            ${
-                                dub ===
-                                currentDub
-                                ? "active"
-                                : ""
-                            }
-                        "
-                        onclick="
-                            selectDub(
-                                '${escapeJS(
-                                    dub
-                                )}'
-                            )
-                        "
-                    >
-
-                        ${escapeHTML(
-                            dub
-                        )}
-
-                    </button>
-
-                `
-            )
-            .join("");
-
-
-    const qualities = [];
-
-
-    matching
-        .filter(
-            ep =>
-                String(
-                    ep.dub ||
-                    ""
-                ) ===
-                String(
-                    currentDub
-                )
-        )
-        .forEach(
-            ep => {
-
-                const quality =
-                    ep.quality ||
-                    "720p";
-
-
-                if (
-                    !qualities.includes(
-                        quality
-                    )
-                ) {
-
-                    qualities.push(
-                        quality
-                    );
-
-                }
-
-            }
-        );
-
-
-    qualities.sort(
-        (a, b) =>
-            parseInt(b) -
-            parseInt(a)
-    );
-
-
-    if (!qualities.length) {
-
-        qualities.push(
-            "720p"
-        );
-
-    }
-
-
-    if (
-        !qualities.includes(
-            currentQuality
-        )
-    ) {
-
-        currentQuality =
-            qualities[0];
-
-    }
-
-
-    const qualityContainer =
-        document.getElementById(
-            "qualityChoices"
-        );
-
-
-    qualityContainer.innerHTML =
-        qualities
-            .map(
-                quality => `
-
-                    <button
-                        class="
-                            choice
-                            ${
-                                quality ===
-                                currentQuality
-                                ? "active"
-                                : ""
-                            }
-                        "
-                        onclick="
-                            selectQuality(
-                                '${escapeJS(
-                                    quality
-                                )}'
-                            )
-                        "
-                    >
-
-                        ${escapeHTML(
-                            quality
-                        )}
-
-                    </button>
-
-                `
-            )
-            .join("");
-
-}
-
-
-/* =====================================================
-   ESCAPE JS
-===================================================== */
-
-
-function escapeJS(
-    value
-) {
-
-    return String(
-        value ?? ""
-    )
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-        .replace(
-            /'/g,
-            "\\'"
-        )
-        .replace(
-            /"/g,
-            '\\"'
-        )
-        .replace(
-            /\n/g,
-            "\\n"
-        )
-        .replace(
-            /\r/g,
-            "\\r"
-        );
-
-}
-
-
-/* =====================================================
-   LOAD VIDEO
-===================================================== */
-
-
-function loadVideo(
-    season,
-    episode
-) {
-
-    const playerContainer =
-        document.getElementById(
-            "playerContainer"
-        );
-
-
-    const player =
-        document.getElementById(
-            "videoPlayer"
-        );
-
-
-    const found =
-        currentEpisodes.find(
-            ep =>
-                Number(
-                    ep.season
-                ) ===
-                Number(
-                    season
-                )
-                &&
-                Number(
-                    ep.episode
-                ) ===
-                Number(
-                    episode
-                )
-                &&
-                String(
-                    ep.dub ||
-                    ""
-                ) ===
-                String(
-                    currentDub
-                )
-                &&
-                String(
-                    ep.quality ||
-                    ""
-                ) ===
-                String(
-                    currentQuality
-                )
-        );
-
-
-    if (
-        !found ||
-        !found.video_url
-    ) {
-
-        player.pause();
-
-        player.removeAttribute(
-            "src"
-        );
-
-        player.load();
-
-
-        playerContainer.innerHTML = `
-
-            <div class="player-message">
-
-                🎬 Видео для выбранных
-                параметров пока не найдено.
-
-                <br><br>
-
-                Озвучка:
-                <b>
-                    ${escapeHTML(
-                        currentDub
-                    )}
-                </b>
-
-                <br>
-
-                Качество:
-                <b>
-                    ${escapeHTML(
-                        currentQuality
-                    )}
-                </b>
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    playerContainer.innerHTML = `
-
-        <video
-            id="videoPlayer"
-            controls
-            playsinline
-            preload="metadata"
-        ></video>
-
-    `;
-
-
-    const newPlayer =
-        document.getElementById(
-            "videoPlayer"
-        );
-
-
-    newPlayer.src =
-        found.video_url;
-
-
-    newPlayer.load();
-
-
-    newPlayer.onerror =
-        function() {
-
-            console.error(
-                "Video loading error:",
-                found.video_url
-            );
-
-        };
-
-}
-
-
-/* =====================================================
-   SELECT DUB
-===================================================== */
-
-
-function selectDub(
-    dub
-) {
-
-    currentDub =
-        dub;
-
-
-    renderWatchChoices(
-        getCurrentSeason(),
-        currentEpisode
-    );
-
-
-    loadVideo(
-        getCurrentSeason(),
-        currentEpisode
-    );
-
-}
-
-
-/* =====================================================
-   SELECT QUALITY
-===================================================== */
-
-
-function selectQuality(
-    quality
-) {
-
-    currentQuality =
-        quality;
-
-
-    renderWatchChoices(
-        getCurrentSeason(),
-        currentEpisode
-    );
-
-
-    loadVideo(
-        getCurrentSeason(),
-        currentEpisode
-    );
-
-}
-
-
-/* =====================================================
-   CURRENT SEASON
-===================================================== */
-
-
-function getCurrentSeason() {
-
-    const found =
-        currentEpisodes.find(
-            ep =>
-                Number(
-                    ep.episode
-                ) ===
-                Number(
-                    currentEpisode
-                )
-        );
-
-
-    if (!found) {
-
-        return 1;
-
-    }
-
-
-    return Number(
-        found.season
-    ) || 1;
-
-}
-
-
-/* =====================================================
-   PREVIOUS EPISODE
-===================================================== */
-
-
-function previousEpisode() {
-
-    if (
-        !currentAnime
-    ) return;
-
-
-    const index =
-        currentEpisodes.findIndex(
-            ep =>
-                Number(
-                    ep.season
-                ) ===
-                getCurrentSeason()
-                &&
-                Number(
-                    ep.episode
-                ) ===
-                Number(
-                    currentEpisode
-                )
-        );
-
-
-    if (
-        index <= 0
-    ) {
-
-        return;
-
-    }
-
-
-    const previous =
-        currentEpisodes[
-            index - 1
-        ];
-
-
-    playEpisode(
-        currentAnime.id,
-        Number(
-            previous.episode
-        ),
-        Number(
-            previous.season
-        )
-    );
-
-}
-
-
-/* =====================================================
-   NEXT EPISODE
-===================================================== */
-
-
-function nextEpisode() {
-
-    if (
-        !currentAnime
-    ) return;
-
-
-    const index =
-        currentEpisodes.findIndex(
-            ep =>
-                Number(
-                    ep.season
-                ) ===
-                getCurrentSeason()
-                &&
-                Number(
-                    ep.episode
-                ) ===
-                Number(
-                    currentEpisode
-                )
-        );
-
-
-    if (
-        index < 0 ||
-        index >=
-        currentEpisodes.length - 1
-    ) {
-
-        return;
-
-    }
-
-
-    const next =
-        currentEpisodes[
-            index + 1
-        ];
-
-
-    playEpisode(
-        currentAnime.id,
-        Number(
-            next.episode
-        ),
-        Number(
-            next.season
-        )
-    );
-
-}
-
-
-/* =====================================================
-   NAVIGATION BUTTONS
-===================================================== */
-
-
-function updateNavigationButtons(
-    season,
-    episode
-) {
-
-    const index =
-        currentEpisodes.findIndex(
-            ep =>
-                Number(
-                    ep.season
-                ) ===
-                Number(
-                    season
-                )
-                &&
-                Number(
-                    ep.episode
-                ) ===
-                Number(
-                    episode
-                )
-        );
-
-
-    const previous =
-        document.getElementById(
-            "previousButton"
-        );
-
-
-    const next =
-        document.getElementById(
-            "nextButton"
-        );
-
-
-    if (!previous || !next) {
-
-        return;
-
-    }
-
-
-    previous.disabled =
-        index <= 0;
-
-
-    next.disabled =
-        index < 0 ||
-        index >=
-        currentEpisodes.length - 1;
-
-}
-
-
-/* =====================================================
+/* ==========================================
    SHOW PAGE
-===================================================== */
-
+========================================== */
 
 function showPage(
     pageId
@@ -3472,12 +2456,10 @@ function showPage(
                 )
         );
 
-
     const page =
         document.getElementById(
             pageId
         );
-
 
     if (page) {
 
@@ -3486,7 +2468,6 @@ function showPage(
         );
 
     }
-
 
     document
         .querySelectorAll(
@@ -3499,55 +2480,40 @@ function showPage(
                 )
         );
 
+    const navItems =
+        document.querySelectorAll(
+            ".nav-item"
+        );
 
     if (
         pageId ===
         "homePage"
     ) {
 
-        document
-            .querySelectorAll(
-                ".nav-item"
-            )[0]
-            .classList.add(
-                "active"
-            );
+        navItems[0]
+            ?.classList.add("active");
 
     }
-
 
     if (
         pageId ===
         "catalogPage"
     ) {
 
-        document
-            .querySelectorAll(
-                ".nav-item"
-            )[1]
-            .classList.add(
-                "active"
-            );
-
+        navItems[1]
+            ?.classList.add("active");
 
         loadCatalog();
 
     }
-
 
     if (
         pageId ===
         "favoritesPage"
     ) {
 
-        document
-            .querySelectorAll(
-                ".nav-item"
-            )[2]
-            .classList.add(
-                "active"
-            );
-
+        navItems[2]
+            ?.classList.add("active");
 
         filterLibrary(
             "all",
@@ -3558,7 +2524,6 @@ function showPage(
 
     }
 
-
     window.scrollTo(
         0,
         0
@@ -3567,17 +2532,15 @@ function showPage(
 }
 
 
-/* =====================================================
+/* ==========================================
    SEARCH BUTTON
-===================================================== */
-
+========================================== */
 
 function focusSearch() {
 
     showPage(
         "homePage"
     );
-
 
     setTimeout(
         () => {
@@ -3587,12 +2550,7 @@ function focusSearch() {
                     "searchInput"
                 );
 
-
-            if (input) {
-
-                input.focus();
-
-            }
+            input?.focus();
 
         },
         100
@@ -3601,10 +2559,9 @@ function focusSearch() {
 }
 
 
-/* =====================================================
-   LOAD EVERYTHING
-===================================================== */
-
+/* ==========================================
+   LOAD ALL
+========================================== */
 
 function loadAll() {
 
@@ -3612,12 +2569,10 @@ function loadAll() {
 
     loadCatalog();
 
-
     const firstTab =
         document.querySelector(
             ".library-tab"
         );
-
 
     if (firstTab) {
 
@@ -3631,15 +2586,13 @@ function loadAll() {
 }
 
 
-/* =====================================================
+/* ==========================================
    START
-===================================================== */
+========================================== */
 
-
-loadAnimeFromSupabase();
-
+loadAnimeFromServer();
 
 </script>
 
 </body>
-    </html>
+        </html>
