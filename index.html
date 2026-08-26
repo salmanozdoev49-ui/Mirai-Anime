@@ -460,6 +460,28 @@ main {
     color: #777985;
 }
 
+.error-box {
+    background: #24141a;
+    border: 1px solid #6b2638;
+    border-radius: 14px;
+    padding: 20px;
+    color: #fff;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.error-title {
+    color: #ff6b81;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.error-code {
+    color: #ffc857;
+    font-family: monospace;
+}
+
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -526,8 +548,6 @@ main {
 
 <main>
 
-<!-- HOME -->
-
 <section
     id="homePage"
     class="page active"
@@ -579,8 +599,6 @@ main {
 </section>
 
 
-<!-- CATALOG -->
-
 <section
     id="catalogPage"
     class="page"
@@ -612,8 +630,6 @@ main {
 
 </section>
 
-
-<!-- FAVORITES / LIBRARY -->
 
 <section
     id="favoritesPage"
@@ -677,8 +693,6 @@ main {
 </section>
 
 
-<!-- ANIME -->
-
 <section
     id="animePage"
     class="page"
@@ -698,8 +712,6 @@ main {
 
 </section>
 
-
-<!-- WATCH -->
 
 <section
     id="watchPage"
@@ -832,8 +844,6 @@ main {
 </main>
 
 
-<!-- NAVIGATION -->
-
 <nav class="bottom-nav">
 
     <div
@@ -894,8 +904,6 @@ main {
 </nav>
 
 
-<!-- SUPABASE -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
@@ -910,24 +918,14 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
     "sb_publishable_pKJuxxiLusgjY_ZpYG7PLw_sRCe_gtA";
 
-
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
-
-
-/* =========================
-   ANIME DATABASE
-========================= */
-
-let animeList = [];
+let supabaseClient = null;
 
 
 /* =========================
    STORAGE
 ========================= */
+
+let animeList = [];
 
 let favorites =
     JSON.parse(
@@ -936,14 +934,12 @@ let favorites =
         )
     ) || [];
 
-
 let statuses =
     JSON.parse(
         localStorage.getItem(
             "miraiStatuses"
         )
     ) || {};
-
 
 let progress =
     JSON.parse(
@@ -952,10 +948,146 @@ let progress =
         )
     ) || {};
 
-
 let currentAnime = null;
 
 let currentEpisode = 1;
+
+
+/* =========================
+   HTML ESCAPE
+========================= */
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   DATABASE ERROR
+========================= */
+
+function showDatabaseError(error) {
+
+    const message = `
+
+        <div class="empty">
+
+            <div class="error-box">
+
+                <div class="error-title">
+                    ❌ Ошибка Supabase
+                </div>
+
+                <div>
+                    Сайт подключился к Supabase,
+                    но Supabase вернул ошибку.
+                </div>
+
+                <br>
+
+                <b>Сообщение:</b>
+
+                <br>
+
+                ${escapeHTML(
+                    error?.message ||
+                    "Неизвестная ошибка"
+                )}
+
+                <br><br>
+
+                <b>Код:</b>
+
+                <div class="error-code">
+                    ${escapeHTML(
+                        error?.code ||
+                        "не указан"
+                    )}
+                </div>
+
+                ${
+                    error?.details
+                    ?
+
+                    `
+                    <br>
+
+                    <b>Details:</b>
+
+                    <br>
+
+                    ${escapeHTML(
+                        error.details
+                    )}
+                    `
+
+                    :
+
+                    ""
+                }
+
+                ${
+                    error?.hint
+                    ?
+
+                    `
+                    <br><br>
+
+                    <b>Hint:</b>
+
+                    <br>
+
+                    ${escapeHTML(
+                        error.hint
+                    )}
+                    `
+
+                    :
+
+                    ""
+                }
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const popular =
+        document.getElementById(
+            "popularGrid"
+        );
+
+    const catalog =
+        document.getElementById(
+            "catalogGrid"
+        );
+
+
+    if (popular) {
+
+        popular.innerHTML =
+            message;
+
+    }
+
+
+    if (catalog) {
+
+        catalog.innerHTML =
+            message;
+
+    }
+
+}
 
 
 /* =========================
@@ -964,7 +1096,54 @@ let currentEpisode = 1;
 
 async function loadAnimeFromSupabase() {
 
+    console.log(
+        "=============================="
+    );
+
+    console.log(
+        "Mirai Anime: запуск Supabase"
+    );
+
+    console.log(
+        "URL:",
+        SUPABASE_URL
+    );
+
+
     try {
+
+        if (
+            !window.supabase
+        ) {
+
+            throw new Error(
+                "Библиотека Supabase JS не загрузилась."
+            );
+
+        }
+
+
+        console.log(
+            "Библиотека Supabase загружена."
+        );
+
+
+        supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+
+        console.log(
+            "Supabase client создан."
+        );
+
+
+        console.log(
+            "Отправляю запрос к таблице anime..."
+        );
+
 
         const {
             data,
@@ -981,25 +1160,48 @@ async function loadAnimeFromSupabase() {
             );
 
 
+        console.log(
+            "Ответ Supabase:",
+            {
+                data: data,
+                error: error
+            }
+        );
+
+
         if (error) {
 
             console.error(
-                "Supabase error:",
+                "SUPABASE ERROR:",
                 error
             );
 
-            showDatabaseError();
+            showDatabaseError(
+                error
+            );
 
             return;
 
         }
 
 
+        console.log(
+            "Данные успешно получены."
+        );
+
+
+        console.log(
+            "Количество аниме:",
+            data?.length || 0
+        );
+
+
         animeList =
             (data || []).map(
                 anime => ({
 
-                    id: anime.id,
+                    id:
+                        anime.id,
 
                     title:
                         anime.title ||
@@ -1038,18 +1240,28 @@ async function loadAnimeFromSupabase() {
             );
 
 
+        console.log(
+            "Обработанный каталог:",
+            animeList
+        );
+
+
         loadAll();
+
 
     }
 
     catch (error) {
 
         console.error(
-            "Connection error:",
+            "КРИТИЧЕСКАЯ ОШИБКА:",
             error
         );
 
-        showDatabaseError();
+
+        showDatabaseError(
+            error
+        );
 
     }
 
@@ -1098,93 +1310,6 @@ function parseGenres(
 
 
 /* =========================
-   DATABASE ERROR
-========================= */
-
-function showDatabaseError() {
-
-    const message = `
-
-        <div class="empty">
-
-            ❌ Не удалось загрузить каталог.
-
-            <br><br>
-
-            Проверь подключение
-            к Supabase и RLS-политику.
-
-        </div>
-
-    `;
-
-
-    const popular =
-        document.getElementById(
-            "popularGrid"
-        );
-
-
-    const catalog =
-        document.getElementById(
-            "catalogGrid"
-        );
-
-
-    if (popular) {
-
-        popular.innerHTML =
-            message;
-
-    }
-
-
-    if (catalog) {
-
-        catalog.innerHTML =
-            message;
-
-    }
-
-}
-
-
-/* =========================
-   ESCAPE HTML
-========================= */
-
-function escapeHTML(
-    value
-) {
-
-    return String(
-        value ?? ""
-    )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
-
-}
-
-
-/* =========================
    CARD
 ========================= */
 
@@ -1225,13 +1350,9 @@ function createCard(
 
         progressHTML = `
 
-            <div
-                class="progress-container"
-            >
+            <div class="progress-container">
 
-                <div
-                    class="progress-text"
-                >
+                <div class="progress-text">
 
                     Серия
                     ${watchedEpisode}
@@ -1240,16 +1361,11 @@ function createCard(
 
                 </div>
 
-
-                <div
-                    class="progress-bar"
-                >
+                <div class="progress-bar">
 
                     <div
                         class="progress-fill"
-                        style="
-                            width:${percent}%;
-                        "
+                        style="width:${percent}%"
                     ></div>
 
                 </div>
@@ -1305,22 +1421,15 @@ function createCard(
                 :
 
                 `
-                <div
-                    class="poster-placeholder"
-                >
+                <div class="poster-placeholder">
                     🎬
                 </div>
                 `
             }
 
+            <div class="anime-info">
 
-            <div
-                class="anime-info"
-            >
-
-                <div
-                    class="anime-title"
-                >
+                <div class="anime-title">
 
                     ${escapeHTML(
                         anime.title
@@ -1328,10 +1437,7 @@ function createCard(
 
                 </div>
 
-
-                <div
-                    class="anime-meta"
-                >
+                <div class="anime-meta">
 
                     ${anime.year}
 
@@ -1342,9 +1448,7 @@ function createCard(
 
                     •
 
-                    <span
-                        class="rating"
-                    >
+                    <span class="rating">
 
                         ★ ${anime.rating}
 
@@ -1352,16 +1456,13 @@ function createCard(
 
                 </div>
 
-
                 ${
                     status
 
                     ?
 
                     `
-                    <span
-                        class="status-label"
-                    >
+                    <span class="status-label">
 
                         ${
                             statusNames[
@@ -1376,7 +1477,6 @@ function createCard(
 
                     ""
                 }
-
 
                 ${progressHTML}
 
@@ -1637,13 +1737,9 @@ function openAnime(
         )
         .innerHTML = `
 
-        <div
-            class="anime-detail"
-        >
+        <div class="anime-detail">
 
-            <div
-                class="detail-top"
-            >
+            <div class="detail-top">
 
                 ${
                     anime.poster
@@ -1677,9 +1773,7 @@ function openAnime(
                 }
 
 
-                <h1
-                    class="detail-title"
-                >
+                <h1 class="detail-title">
 
                     ${escapeHTML(
                         anime.title
@@ -1688,9 +1782,7 @@ function openAnime(
                 </h1>
 
 
-                <div
-                    class="anime-meta"
-                >
+                <div class="anime-meta">
 
                     ${anime.year}
 
@@ -1701,9 +1793,7 @@ function openAnime(
 
                     •
 
-                    <span
-                        class="rating"
-                    >
+                    <span class="rating">
 
                         ★ ${anime.rating}
 
@@ -1712,18 +1802,14 @@ function openAnime(
                 </div>
 
 
-                <div
-                    class="tags"
-                >
+                <div class="tags">
 
                     ${
                         anime.genres
                             .map(
                                 genre => `
 
-                                <span
-                                    class="tag"
-                                >
+                                <span class="tag">
 
                                     ${escapeHTML(
                                         genre
@@ -1739,9 +1825,7 @@ function openAnime(
                 </div>
 
 
-                <p
-                    class="detail-description"
-                >
+                <p class="detail-description">
 
                     ${escapeHTML(
                         anime.description
@@ -1750,18 +1834,14 @@ function openAnime(
                 </p>
 
 
-                <div
-                    class="status-title"
-                >
+                <div class="status-title">
 
                     Статус просмотра
 
                 </div>
 
 
-                <div
-                    class="status-buttons"
-                >
+                <div class="status-buttons">
 
                     <button
                         class="
@@ -1860,13 +1940,9 @@ function openAnime(
 
                     ${
                         favorite
-
                         ?
-
                         "★ В избранном"
-
                         :
-
                         "☆ Добавить в избранное"
                     }
 
@@ -1884,14 +1960,10 @@ function openAnime(
 
                     <div
                         class="progress-container"
-                        style="
-                            margin-top:20px;
-                        "
+                        style="margin-top:20px;"
                     >
 
-                        <div
-                            class="progress-text"
-                        >
+                        <div class="progress-text">
 
                             Ты посмотрел:
 
@@ -1910,18 +1982,14 @@ function openAnime(
                         </div>
 
 
-                        <div
-                            class="progress-bar"
-                        >
+                        <div class="progress-bar">
 
                             <div
                                 class="progress-fill"
                                 style="
-                                    width:
-                                    ${
+                                    width:${
                                         anime.episodes
                                         ?
-
                                         Math.min(
                                             100,
                                             Math.round(
@@ -1932,9 +2000,7 @@ function openAnime(
                                                 100
                                             )
                                         )
-
                                         :
-
                                         0
                                     }%;
                                 "
@@ -1952,16 +2018,14 @@ function openAnime(
                 }
 
 
-                <h2
-                    class="season-title"
-                >
+                <h2 class="season-title">
+
                     Сезон 1
+
                 </h2>
 
 
-                <div
-                    class="episode-list"
-                >
+                <div class="episode-list">
 
                     ${
                         Array.from(
@@ -1997,13 +2061,9 @@ function openAnime(
                                         anime.id
                                     ] >=
                                     i + 1
-
                                     ?
-
                                     "✓ "
-
                                     :
-
                                     ""
                                 }
 
@@ -2487,18 +2547,20 @@ function showPage(
         );
 
 
+    const navItems =
+        document.querySelectorAll(
+            ".nav-item"
+        );
+
+
     if (
         pageId ===
         "homePage"
     ) {
 
-        document
-            .querySelectorAll(
-                ".nav-item"
-            )[0]
-            .classList.add(
-                "active"
-            );
+        navItems[0]?.classList.add(
+            "active"
+        );
 
     }
 
@@ -2508,13 +2570,9 @@ function showPage(
         "catalogPage"
     ) {
 
-        document
-            .querySelectorAll(
-                ".nav-item"
-            )[1]
-            .classList.add(
-                "active"
-            );
+        navItems[1]?.classList.add(
+            "active"
+        );
 
         loadCatalog();
 
@@ -2526,13 +2584,9 @@ function showPage(
         "favoritesPage"
     ) {
 
-        document
-            .querySelectorAll(
-                ".nav-item"
-            )[2]
-            .classList.add(
-                "active"
-            );
+        navItems[2]?.classList.add(
+            "active"
+        );
 
 
         filterLibrary(
