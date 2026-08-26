@@ -2,4 +2,3 @@ Flask
 flask-cors
 supabase
 gunicorn
-gunicorn server:app
