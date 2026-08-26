@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Mirai Anime</title>
 
@@ -30,8 +35,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     background: #0d0e14;
     border-bottom: 1px solid #20212a;
+
     position: sticky;
     top: 0;
     z-index: 20;
@@ -90,11 +97,14 @@ main {
 .search {
     width: 100%;
     padding: 15px 17px;
+
     border: 1px solid #292a36;
     outline: none;
     border-radius: 12px;
+
     background: #20212a;
     color: white;
+
     font-size: 15px;
 }
 
@@ -106,6 +116,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     margin: 25px 0 15px;
 }
 
@@ -131,7 +142,9 @@ main {
     background: #111219;
     border-radius: 15px;
     overflow: hidden;
+
     border: 1px solid #1e2029;
+
     cursor: pointer;
     transition: .2s;
 }
@@ -144,16 +157,21 @@ main {
 .poster {
     width: 100%;
     height: 220px;
+
     object-fit: cover;
+
     background: #191a23;
+
     display: block;
 }
 
 .poster-placeholder {
     height: 220px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     font-size: 45px;
 
     background:
@@ -172,6 +190,7 @@ main {
     font-size: 14px;
     font-weight: bold;
     line-height: 1.35;
+
     margin-bottom: 7px;
 }
 
@@ -197,23 +216,32 @@ main {
 .progress-bar {
     width: 100%;
     height: 4px;
+
     background: #292a35;
     border-radius: 10px;
+
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
+
     background: #8b5cf6;
+
     border-radius: 10px;
 }
 
 .status-label {
     display: inline-block;
+
     margin-top: 8px;
+
     padding: 5px 8px;
+
     border-radius: 7px;
+
     font-size: 10px;
+
     background: #24202f;
     color: #c5a9ff;
 }
@@ -228,18 +256,26 @@ main {
 
 .back {
     border: 0;
+
     background: #191a22;
     color: white;
+
     padding: 10px 14px;
+
     border-radius: 10px;
+
     cursor: pointer;
+
     margin-bottom: 18px;
 }
 
 .anime-detail {
     background: #111219;
+
     border: 1px solid #20212a;
+
     border-radius: 18px;
+
     overflow: hidden;
 }
 
@@ -250,93 +286,132 @@ main {
 .detail-poster {
     width: 150px;
     height: 220px;
+
     object-fit: cover;
+
     border-radius: 12px;
+
     display: block;
+
     margin-bottom: 18px;
 }
 
 .detail-title {
     font-size: 26px;
+
     margin: 0 0 10px;
 }
 
 .detail-description {
     color: #aaaab5;
+
     line-height: 1.6;
+
     font-size: 14px;
 }
 
 .tags {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 7px;
+
     margin: 15px 0;
 }
 
 .tag {
     background: #24202f;
+
     color: #c5a9ff;
+
     padding: 6px 9px;
+
     border-radius: 8px;
+
     font-size: 12px;
 }
 
 .status-title {
     font-size: 15px;
+
     margin-top: 25px;
     margin-bottom: 10px;
 }
 
 .status-buttons {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 8px;
 }
 
 .status-btn {
     border: 1px solid #292a35;
+
     background: #171820;
+
     color: white;
+
     padding: 11px 6px;
+
     border-radius: 9px;
+
     cursor: pointer;
+
     font-size: 12px;
 }
 
 .status-btn.active {
     background: #8b5cf6;
+
     border-color: #8b5cf6;
 }
 
 .favorite-btn {
     border: 0;
+
     background: #8b5cf6;
+
     color: white;
+
     padding: 12px 16px;
+
     border-radius: 10px;
+
     cursor: pointer;
+
     font-weight: bold;
+
     margin-top: 12px;
 }
 
 .season-title {
     font-size: 19px;
+
     margin: 25px 0 12px;
 }
 
 .episode-list {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 8px;
 }
 
 .episode {
     border: 1px solid #292a35;
+
     background: #171820;
+
     color: white;
+
     padding: 12px 5px;
+
     border-radius: 9px;
+
     cursor: pointer;
 }
 
@@ -346,6 +421,7 @@ main {
 
 .episode.watched {
     border-color: #8b5cf6;
+
     color: #c5a9ff;
 }
 
@@ -355,27 +431,37 @@ main {
 
 .video-box {
     width: 100%;
+
     background: #000;
+
     border-radius: 14px;
+
     overflow: hidden;
+
     border: 1px solid #252631;
 }
 
 .video-box video {
     display: block;
+
     width: 100%;
+
     max-height: 70vh;
+
     background: #000;
 }
 
 .watch-title {
     margin: 18px 0 5px;
+
     font-size: 22px;
 }
 
 .watch-episode {
     color: #92939e;
+
     font-size: 14px;
+
     margin-bottom: 25px;
 }
 
@@ -385,43 +471,79 @@ main {
 
 .watch-label {
     font-size: 14px;
+
     font-weight: bold;
+
     margin-bottom: 10px;
 }
 
 .choice-list {
     display: flex;
+
     gap: 8px;
+
     flex-wrap: wrap;
 }
 
 .choice {
     border: 1px solid #292a35;
+
     background: #171820;
+
     color: #fff;
+
     padding: 11px 15px;
+
     border-radius: 9px;
+
     cursor: pointer;
 }
 
 .choice.active {
     background: #8b5cf6;
+
     border-color: #8b5cf6;
+}
+
+.choice.disabled {
+    opacity: .35;
+
+    cursor: not-allowed;
+}
+
+.player-message {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #aaaab5;
+
+    background: #111219;
+
+    border-radius: 14px;
 }
 
 .episode-navigation {
     display: flex;
+
     gap: 10px;
+
     margin-top: 25px;
 }
 
 .episode-navigation button {
     flex: 1;
+
     border: 1px solid #292a35;
+
     background: #171820;
+
     color: white;
+
     padding: 13px 8px;
+
     border-radius: 10px;
+
     cursor: pointer;
 }
 
@@ -429,82 +551,95 @@ main {
     background: #8b5cf6;
 }
 
+.episode-navigation button:disabled {
+    opacity: .35;
+
+    cursor: not-allowed;
+}
+
 .library-tabs {
     display: flex;
+
     gap: 7px;
+
     overflow-x: auto;
+
     padding-bottom: 10px;
+
     margin-bottom: 15px;
 }
 
 .library-tab {
     white-space: nowrap;
+
     border: 1px solid #292a35;
+
     background: #171820;
+
     color: #aaaab5;
+
     padding: 9px 12px;
+
     border-radius: 9px;
+
     cursor: pointer;
+
     font-size: 12px;
 }
 
 .library-tab.active {
     background: #8b5cf6;
+
     color: white;
+
     border-color: #8b5cf6;
 }
 
 .empty {
     text-align: center;
+
     padding: 40px 15px;
+
     color: #777985;
-}
-
-.error-box {
-    background: #24141a;
-    border: 1px solid #6b2638;
-    border-radius: 14px;
-    padding: 20px;
-    color: #fff;
-    line-height: 1.6;
-    word-break: break-word;
-}
-
-.error-title {
-    color: #ff6b81;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-.error-code {
-    color: #ffc857;
-    font-family: monospace;
 }
 
 .bottom-nav {
     position: fixed;
+
     bottom: 0;
+
     left: 0;
+
     right: 0;
+
     height: 65px;
+
     background: #0d0e14;
+
     border-top: 1px solid #20212a;
+
     display: flex;
+
     justify-content: space-around;
+
     align-items: center;
+
     z-index: 30;
 }
 
 .nav-item {
     text-align: center;
+
     color: #777984;
+
     font-size: 11px;
+
     cursor: pointer;
 }
 
 .nav-item div {
     font-size: 21px;
+
     margin-bottom: 3px;
 }
 
@@ -520,15 +655,18 @@ main {
 
     .detail-poster {
         width: 190px;
+
         height: 280px;
     }
 
 }
 
 </style>
+
 </head>
 
 <body>
+
 
 <header>
 
@@ -547,6 +685,9 @@ main {
 
 
 <main>
+
+
+<!-- HOME -->
 
 <section
     id="homePage"
@@ -599,6 +740,8 @@ main {
 </section>
 
 
+<!-- CATALOG -->
+
 <section
     id="catalogPage"
     class="page"
@@ -630,6 +773,8 @@ main {
 
 </section>
 
+
+<!-- LIBRARY -->
 
 <section
     id="favoritesPage"
@@ -693,6 +838,8 @@ main {
 </section>
 
 
+<!-- ANIME -->
+
 <section
     id="animePage"
     class="page"
@@ -713,6 +860,8 @@ main {
 </section>
 
 
+<!-- WATCH -->
+
 <section
     id="watchPage"
     class="page"
@@ -728,25 +877,18 @@ main {
 
     <div class="watch-container">
 
-        <div class="video-box">
+
+        <div
+            id="playerContainer"
+            class="video-box"
+        >
 
             <video
                 id="videoPlayer"
                 controls
                 playsinline
                 preload="metadata"
-            >
-
-                <source
-                    id="videoSource"
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                    type="video/mp4"
-                >
-
-                Ваш браузер
-                не поддерживает видео.
-
-            </video>
+            ></video>
 
         </div>
 
@@ -767,32 +909,23 @@ main {
         </div>
 
 
+        <!-- DUB -->
+
         <div class="watch-section">
 
             <div class="watch-label">
                 Озвучка
             </div>
 
-            <div class="choice-list">
-
-                <button
-                    class="choice active"
-                    onclick="selectDub(this)"
-                >
-                    AniLibria
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="selectDub(this)"
-                >
-                    Dream Cast
-                </button>
-
-            </div>
+            <div
+                id="dubChoices"
+                class="choice-list"
+            ></div>
 
         </div>
 
+
+        <!-- QUALITY -->
 
         <div class="watch-section">
 
@@ -800,23 +933,10 @@ main {
                 Качество
             </div>
 
-            <div class="choice-list">
-
-                <button
-                    class="choice active"
-                    onclick="selectQuality(this, '720p')"
-                >
-                    720p
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="selectQuality(this, '1080p')"
-                >
-                    1080p
-                </button>
-
-            </div>
+            <div
+                id="qualityChoices"
+                class="choice-list"
+            ></div>
 
         </div>
 
@@ -824,12 +944,14 @@ main {
         <div class="episode-navigation">
 
             <button
+                id="previousButton"
                 onclick="previousEpisode()"
             >
                 ← Предыдущая
             </button>
 
             <button
+                id="nextButton"
                 onclick="nextEpisode()"
             >
                 Следующая →
@@ -841,10 +963,14 @@ main {
 
 </section>
 
+
 </main>
 
 
+<!-- NAVIGATION -->
+
 <nav class="bottom-nav">
+
 
     <div
         class="nav-item active"
@@ -901,31 +1027,52 @@ main {
 
     </div>
 
+
 </nav>
 
 
+<!-- SUPABASE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <script>
 
-/* =========================
+
+/* =====================================================
    SUPABASE
-========================= */
+===================================================== */
+
 
 const SUPABASE_URL =
     "https://bugtgzxhteqnihuadpvp.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable_pKJuxxiLusgjY_ZpYG7PLw_sRCe_gtA";
 
-let supabaseClient = null;
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
 
-/* =========================
-   STORAGE
-========================= */
+/* =====================================================
+   DATABASE
+===================================================== */
+
 
 let animeList = [];
+
+let episodeList = [];
+
+
+/* =====================================================
+   LOCAL STORAGE
+===================================================== */
+
 
 let favorites =
     JSON.parse(
@@ -934,12 +1081,14 @@ let favorites =
         )
     ) || [];
 
+
 let statuses =
     JSON.parse(
         localStorage.getItem(
             "miraiStatuses"
         )
     ) || {};
+
 
 let progress =
     JSON.parse(
@@ -948,231 +1097,56 @@ let progress =
         )
     ) || {};
 
+
+/* =====================================================
+   CURRENT STATE
+===================================================== */
+
+
 let currentAnime = null;
 
 let currentEpisode = 1;
 
+let currentDub = "AniLibria";
 
-/* =========================
-   HTML ESCAPE
-========================= */
+let currentQuality = "720p";
 
-function escapeHTML(value) {
-
-    return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
+let currentEpisodes = [];
 
 
-/* =========================
-   DATABASE ERROR
-========================= */
+/* =====================================================
+   LOAD ANIME
+===================================================== */
 
-function showDatabaseError(error) {
-
-    const message = `
-
-        <div class="empty">
-
-            <div class="error-box">
-
-                <div class="error-title">
-                    ❌ Ошибка Supabase
-                </div>
-
-                <div>
-                    Сайт подключился к Supabase,
-                    но Supabase вернул ошибку.
-                </div>
-
-                <br>
-
-                <b>Сообщение:</b>
-
-                <br>
-
-                ${escapeHTML(
-                    error?.message ||
-                    "Неизвестная ошибка"
-                )}
-
-                <br><br>
-
-                <b>Код:</b>
-
-                <div class="error-code">
-                    ${escapeHTML(
-                        error?.code ||
-                        "не указан"
-                    )}
-                </div>
-
-                ${
-                    error?.details
-                    ?
-
-                    `
-                    <br>
-
-                    <b>Details:</b>
-
-                    <br>
-
-                    ${escapeHTML(
-                        error.details
-                    )}
-                    `
-
-                    :
-
-                    ""
-                }
-
-                ${
-                    error?.hint
-                    ?
-
-                    `
-                    <br><br>
-
-                    <b>Hint:</b>
-
-                    <br>
-
-                    ${escapeHTML(
-                        error.hint
-                    )}
-                    `
-
-                    :
-
-                    ""
-                }
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    const popular =
-        document.getElementById(
-            "popularGrid"
-        );
-
-    const catalog =
-        document.getElementById(
-            "catalogGrid"
-        );
-
-
-    if (popular) {
-
-        popular.innerHTML =
-            message;
-
-    }
-
-
-    if (catalog) {
-
-        catalog.innerHTML =
-            message;
-
-    }
-
-}
-
-
-/* =========================
-   LOAD FROM SUPABASE
-========================= */
 
 async function loadAnimeFromSupabase() {
 
-    console.log(
-        "=============================="
-    );
-
-    console.log(
-        "Mirai Anime: запуск Supabase"
-    );
-
-    console.log(
-        "URL:",
-        SUPABASE_URL
-    );
-
-
     try {
 
-        if (
-            !window.supabase
-        ) {
-
-            throw new Error(
-                "Библиотека Supabase JS не загрузилась."
-            );
-
-        }
-
-
-        console.log(
-            "Библиотека Supabase загружена."
-        );
+        const result =
+            await supabaseClient
+                .from("Anime sait")
+                .select("*")
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
 
 
-        supabaseClient =
-            window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY
-            );
+        const data =
+            result.data;
 
 
-        console.log(
-            "Supabase client создан."
-        );
-
-
-        console.log(
-            "Отправляю запрос к таблице anime..."
-        );
-
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-            .from("Anime sait")
-            .select("*")
-            .order(
-                "created_at",
-                {
-                    ascending: false
-                }
-            );
-
-
-        console.log(
-            "Ответ Supabase:",
-            {
-                data: data,
-                error: error
-            }
-        );
+        const error =
+            result.error;
 
 
         if (error) {
 
             console.error(
-                "SUPABASE ERROR:",
+                "Anime Supabase error:",
                 error
             );
 
@@ -1183,17 +1157,6 @@ async function loadAnimeFromSupabase() {
             return;
 
         }
-
-
-        console.log(
-            "Данные успешно получены."
-        );
-
-
-        console.log(
-            "Количество аниме:",
-            data?.length || 0
-        );
 
 
         animeList =
@@ -1212,8 +1175,9 @@ async function loadAnimeFromSupabase() {
                         0,
 
                     episodes:
-                        anime.episodes ||
-                        0,
+                        Number(
+                            anime.episodes
+                        ) || 0,
 
                     rating:
                         anime.rating ||
@@ -1233,31 +1197,23 @@ async function loadAnimeFromSupabase() {
                         "",
 
                     popular:
-                        anime.popular ===
-                        true
+                        anime.popular === true
 
                 })
             );
 
 
-        console.log(
-            "Обработанный каталог:",
-            animeList
-        );
-
+        await loadEpisodesFromSupabase();
 
         loadAll();
-
 
     }
 
     catch (error) {
 
         console.error(
-            "КРИТИЧЕСКАЯ ОШИБКА:",
             error
         );
-
 
         showDatabaseError(
             error
@@ -1268,9 +1224,77 @@ async function loadAnimeFromSupabase() {
 }
 
 
-/* =========================
+/* =====================================================
+   LOAD EPISODES
+===================================================== */
+
+
+async function loadEpisodesFromSupabase() {
+
+    try {
+
+        const result =
+            await supabaseClient
+                .from("episodes")
+                .select("*")
+                .order(
+                    "episode",
+                    {
+                        ascending: true
+                    }
+                );
+
+
+        const data =
+            result.data;
+
+
+        const error =
+            result.error;
+
+
+        if (error) {
+
+            console.error(
+                "Episodes Supabase error:",
+                error
+            );
+
+            episodeList = [];
+
+            return;
+
+        }
+
+
+        episodeList =
+            data || [];
+
+
+        console.log(
+            "Episodes loaded:",
+            episodeList
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+        episodeList = [];
+
+    }
+
+}
+
+
+/* =====================================================
    GENRES
-========================= */
+===================================================== */
+
 
 function parseGenres(
     genres
@@ -1297,21 +1321,124 @@ function parseGenres(
     return String(
         genres
     )
-    .split(",")
-    .map(
-        genre =>
-            genre.trim()
-    )
-    .filter(
-        Boolean
-    );
+        .split(",")
+        .map(
+            genre =>
+                genre.trim()
+        )
+        .filter(
+            Boolean
+        );
 
 }
 
 
-/* =========================
+/* =====================================================
+   DATABASE ERROR
+===================================================== */
+
+
+function showDatabaseError(
+    error
+) {
+
+    const message = `
+
+        <div class="empty">
+
+            ❌ Ошибка Supabase
+
+            <br><br>
+
+            Сайт подключился к Supabase,
+            но Supabase вернул ошибку.
+
+            <br><br>
+
+            <small>
+
+                ${escapeHTML(
+                    error?.message ||
+                    "Неизвестная ошибка"
+                )}
+
+            </small>
+
+        </div>
+
+    `;
+
+
+    const popular =
+        document.getElementById(
+            "popularGrid"
+        );
+
+
+    const catalog =
+        document.getElementById(
+            "catalogGrid"
+        );
+
+
+    if (popular) {
+
+        popular.innerHTML =
+            message;
+
+    }
+
+
+    if (catalog) {
+
+        catalog.innerHTML =
+            message;
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+
+function escapeHTML(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
    CARD
-========================= */
+===================================================== */
+
 
 function createCard(
     anime
@@ -1324,9 +1451,11 @@ function createCard(
 
 
     const watchedEpisode =
-        progress[
-            anime.id
-        ] || 0;
+        Number(
+            progress[
+                anime.id
+            ]
+        ) || 0;
 
 
     let progressHTML = "";
@@ -1360,6 +1489,7 @@ function createCard(
                     ${anime.episodes}
 
                 </div>
+
 
                 <div class="progress-bar">
 
@@ -1398,7 +1528,9 @@ function createCard(
 
         <div
             class="anime-card"
-            onclick="openAnime(${anime.id})"
+            onclick="openAnime(${Number(
+                anime.id
+            )})"
         >
 
             ${
@@ -1427,6 +1559,7 @@ function createCard(
                 `
             }
 
+
             <div class="anime-info">
 
                 <div class="anime-title">
@@ -1436,6 +1569,7 @@ function createCard(
                     )}
 
                 </div>
+
 
                 <div class="anime-meta">
 
@@ -1455,6 +1589,7 @@ function createCard(
                     </span>
 
                 </div>
+
 
                 ${
                     status
@@ -1478,6 +1613,7 @@ function createCard(
                     ""
                 }
 
+
                 ${progressHTML}
 
             </div>
@@ -1489,9 +1625,10 @@ function createCard(
 }
 
 
-/* =========================
+/* =====================================================
    POPULAR
-========================= */
+===================================================== */
+
 
 function loadPopular() {
 
@@ -1517,8 +1654,7 @@ function loadPopular() {
 
             <div class="empty">
 
-                Пока нет популярных
-                аниме.
+                Пока нет популярных аниме.
 
             </div>
 
@@ -1539,9 +1675,10 @@ function loadPopular() {
 }
 
 
-/* =========================
+/* =====================================================
    CATALOG
-========================= */
+===================================================== */
+
 
 function loadCatalog(
     list = animeList
@@ -1583,9 +1720,10 @@ function loadCatalog(
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* =====================================================
+   HOME SEARCH
+===================================================== */
+
 
 function searchAnime() {
 
@@ -1657,9 +1795,10 @@ function searchAnime() {
 }
 
 
-/* =========================
+/* =====================================================
    CATALOG SEARCH
-========================= */
+===================================================== */
+
 
 function catalogSearch() {
 
@@ -1696,9 +1835,10 @@ function catalogSearch() {
 }
 
 
-/* =========================
+/* =====================================================
    OPEN ANIME
-========================= */
+===================================================== */
+
 
 function openAnime(
     id
@@ -1731,6 +1871,183 @@ function openAnime(
         ] || "";
 
 
+    const animeEpisodes =
+        episodeList.filter(
+            ep =>
+                Number(ep.anime_id) ===
+                Number(anime.id)
+        );
+
+
+    let seasons = [];
+
+
+    animeEpisodes.forEach(
+        ep => {
+
+            const season =
+                Number(
+                    ep.season
+                ) || 1;
+
+
+            if (
+                !seasons.includes(
+                    season
+                )
+            ) {
+
+                seasons.push(
+                    season
+                );
+
+            }
+
+        }
+    );
+
+
+    if (!seasons.length) {
+
+        seasons = [1];
+
+    }
+
+
+    seasons.sort(
+        (a, b) =>
+            a - b
+    );
+
+
+    let seasonsHTML = "";
+
+
+    seasons.forEach(
+        season => {
+
+            const seasonEpisodes =
+                animeEpisodes.filter(
+                    ep =>
+                        Number(
+                            ep.season
+                        ) ===
+                        Number(
+                            season
+                        )
+                );
+
+
+            seasonEpisodes.sort(
+                (a, b) =>
+                    Number(a.episode) -
+                    Number(b.episode)
+            );
+
+
+            seasonsHTML += `
+
+                <h2 class="season-title">
+
+                    Сезон ${season}
+
+                </h2>
+
+
+                <div class="episode-list">
+
+            `;
+
+
+            if (
+                seasonEpisodes.length
+            ) {
+
+                seasonEpisodes.forEach(
+                    ep => {
+
+                        const epNumber =
+                            Number(
+                                ep.episode
+                            );
+
+
+                        const watched =
+                            Number(
+                                progress[
+                                    anime.id
+                                ]
+                            ) >=
+                            epNumber;
+
+
+                        seasonsHTML += `
+
+                            <button
+                                class="
+                                    episode
+                                    ${
+                                        watched
+                                        ? "watched"
+                                        : ""
+                                    }
+                                "
+                                onclick="
+                                    playEpisode(
+                                        ${Number(
+                                            anime.id
+                                        )},
+                                        ${epNumber},
+                                        ${Number(
+                                            season
+                                        )}
+                                    )
+                                "
+                            >
+
+                                ${
+                                    watched
+                                    ? "✓ "
+                                    : ""
+                                }
+
+                                Серия
+                                ${epNumber}
+
+                            </button>
+
+                        `;
+
+                    }
+                );
+
+            }
+
+            else {
+
+                seasonsHTML += `
+
+                    <div class="empty">
+
+                        В этом сезоне пока нет серий.
+
+                    </div>
+
+                `;
+
+            }
+
+
+            seasonsHTML += `
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
     document
         .getElementById(
             "animeDetails"
@@ -1740,6 +2057,7 @@ function openAnime(
         <div class="anime-detail">
 
             <div class="detail-top">
+
 
                 ${
                     anime.poster
@@ -1809,13 +2127,13 @@ function openAnime(
                             .map(
                                 genre => `
 
-                                <span class="tag">
+                                    <span class="tag">
 
-                                    ${escapeHTML(
-                                        genre
-                                    )}
+                                        ${escapeHTML(
+                                            genre
+                                        )}
 
-                                </span>
+                                    </span>
 
                                 `
                             )
@@ -1843,6 +2161,7 @@ function openAnime(
 
                 <div class="status-buttons">
 
+
                     <button
                         class="
                             status-btn
@@ -1855,12 +2174,16 @@ function openAnime(
                         "
                         onclick="
                             setStatus(
-                                ${anime.id},
+                                ${Number(
+                                    anime.id
+                                )},
                                 'watching'
                             )
                         "
                     >
+
                         👀 Смотрю
+
                     </button>
 
 
@@ -1876,12 +2199,16 @@ function openAnime(
                         "
                         onclick="
                             setStatus(
-                                ${anime.id},
+                                ${Number(
+                                    anime.id
+                                )},
                                 'watched'
                             )
                         "
                     >
+
                         ✅ Просмотрено
+
                     </button>
 
 
@@ -1897,12 +2224,16 @@ function openAnime(
                         "
                         onclick="
                             setStatus(
-                                ${anime.id},
+                                ${Number(
+                                    anime.id
+                                )},
                                 'planned'
                             )
                         "
                     >
+
                         ⏳ Планирую
+
                     </button>
 
 
@@ -1918,13 +2249,18 @@ function openAnime(
                         "
                         onclick="
                             setStatus(
-                                ${anime.id},
+                                ${Number(
+                                    anime.id
+                                )},
                                 'dropped'
                             )
                         "
                     >
+
                         ❌ Бросил
+
                     </button>
+
 
                 </div>
 
@@ -1933,7 +2269,9 @@ function openAnime(
                     class="favorite-btn"
                     onclick="
                         toggleFavorite(
-                            ${anime.id}
+                            ${Number(
+                                anime.id
+                            )}
                         )
                     "
                 >
@@ -1987,9 +2325,12 @@ function openAnime(
                             <div
                                 class="progress-fill"
                                 style="
-                                    width:${
+                                    width:
+                                    ${
                                         anime.episodes
+
                                         ?
+
                                         Math.min(
                                             100,
                                             Math.round(
@@ -2000,7 +2341,9 @@ function openAnime(
                                                 100
                                             )
                                         )
+
                                         :
+
                                         0
                                     }%;
                                 "
@@ -2018,65 +2361,8 @@ function openAnime(
                 }
 
 
-                <h2 class="season-title">
+                ${seasonsHTML}
 
-                    Сезон 1
-
-                </h2>
-
-
-                <div class="episode-list">
-
-                    ${
-                        Array.from(
-                            {
-                                length:
-                                    anime.episodes
-                            },
-
-                            (_, i) => `
-
-                            <button
-                                class="
-                                    episode
-                                    ${
-                                        progress[
-                                            anime.id
-                                        ] >=
-                                        i + 1
-                                        ? "watched"
-                                        : ""
-                                    }
-                                "
-                                onclick="
-                                    playEpisode(
-                                        ${anime.id},
-                                        ${i + 1}
-                                    )
-                                "
-                            >
-
-                                ${
-                                    progress[
-                                        anime.id
-                                    ] >=
-                                    i + 1
-                                    ?
-                                    "✓ "
-                                    :
-                                    ""
-                                }
-
-                                Серия
-                                ${i + 1}
-
-                            </button>
-
-                            `
-                        ).join("")
-                    }
-
-                </div>
 
             </div>
 
@@ -2092,9 +2378,10 @@ function openAnime(
 }
 
 
-/* =========================
+/* =====================================================
    STATUS
-========================= */
+===================================================== */
+
 
 function setStatus(
     id,
@@ -2125,9 +2412,10 @@ function setStatus(
 }
 
 
-/* =========================
+/* =====================================================
    LIBRARY
-========================= */
+===================================================== */
+
 
 function filterLibrary(
     filter,
@@ -2165,7 +2453,9 @@ function filterLibrary(
             animeList.filter(
                 anime =>
                     favorites.includes(
-                        Number(anime.id)
+                        Number(
+                            anime.id
+                        )
                     )
                     ||
                     statuses[
@@ -2222,9 +2512,10 @@ function filterLibrary(
 }
 
 
-/* =========================
+/* =====================================================
    FAVORITE
-========================= */
+===================================================== */
+
 
 function toggleFavorite(
     id
@@ -2276,34 +2567,141 @@ function toggleFavorite(
 }
 
 
-/* =========================
+/* =====================================================
+   GET EPISODES FOR CURRENT ANIME
+===================================================== */
+
+
+function getEpisodesForAnime(
+    animeId
+) {
+
+    return episodeList
+        .filter(
+            ep =>
+                Number(
+                    ep.anime_id
+                ) ===
+                Number(
+                    animeId
+                )
+        )
+        .sort(
+            (a, b) => {
+
+                const seasonA =
+                    Number(
+                        a.season
+                    ) || 1;
+
+                const seasonB =
+                    Number(
+                        b.season
+                    ) || 1;
+
+                if (
+                    seasonA !==
+                    seasonB
+                ) {
+
+                    return (
+                        seasonA -
+                        seasonB
+                    );
+
+                }
+
+                return (
+                    Number(
+                        a.episode
+                    ) -
+                    Number(
+                        b.episode
+                    )
+                );
+
+            }
+        );
+
+}
+
+
+/* =====================================================
    PLAY EPISODE
-========================= */
+===================================================== */
+
 
 function playEpisode(
     animeId,
-    episode
+    episode,
+    season = 1
 ) {
 
     currentAnime =
         animeList.find(
             anime =>
-                Number(anime.id) ===
-                Number(animeId)
+                Number(
+                    anime.id
+                ) ===
+                Number(
+                    animeId
+                )
         );
 
 
-    if (!currentAnime) return;
+    if (!currentAnime) {
+
+        return;
+
+    }
 
 
     currentEpisode =
-        episode;
+        Number(
+            episode
+        );
+
+
+    currentEpisodes =
+        getEpisodesForAnime(
+            animeId
+        );
+
+
+    const episodeExists =
+        currentEpisodes.some(
+            ep =>
+                Number(
+                    ep.season
+                ) ===
+                Number(
+                    season
+                )
+                &&
+                Number(
+                    ep.episode
+                ) ===
+                Number(
+                    episode
+                )
+        );
+
+
+    if (!episodeExists) {
+
+        alert(
+            "Эта серия пока не добавлена в Supabase."
+        );
+
+        return;
+
+    }
 
 
     progress[
         currentAnime.id
     ] =
-        episode;
+        currentEpisode;
 
 
     localStorage.setItem(
@@ -2354,13 +2752,314 @@ function playEpisode(
             "watchEpisode"
         )
         .textContent =
-        "Серия " +
-        episode;
+        `Сезон ${season} • Серия ${episode}`;
 
 
     showPage(
         "watchPage"
     );
+
+
+    renderWatchChoices(
+        season,
+        episode
+    );
+
+
+    updateNavigationButtons(
+        season,
+        episode
+    );
+
+
+    loadVideo(
+        season,
+        episode
+    );
+
+
+    loadAll();
+
+}
+
+
+/* =====================================================
+   RENDER DUB / QUALITY
+===================================================== */
+
+
+function renderWatchChoices(
+    season,
+    episode
+) {
+
+    const matching =
+        currentEpisodes.filter(
+            ep =>
+                Number(
+                    ep.season
+                ) ===
+                Number(
+                    season
+                )
+                &&
+                Number(
+                    ep.episode
+                ) ===
+                Number(
+                    episode
+                )
+        );
+
+
+    const dubs = [];
+
+
+    matching.forEach(
+        ep => {
+
+            const dub =
+                ep.dub ||
+                "Без озвучки";
+
+
+            if (
+                !dubs.includes(
+                    dub
+                )
+            ) {
+
+                dubs.push(
+                    dub
+                );
+
+            }
+
+        }
+    );
+
+
+    if (!dubs.length) {
+
+        dubs.push(
+            "AniLibria"
+        );
+
+    }
+
+
+    if (
+        !dubs.includes(
+            currentDub
+        )
+    ) {
+
+        currentDub =
+            dubs[0];
+
+    }
+
+
+    const dubContainer =
+        document.getElementById(
+            "dubChoices"
+        );
+
+
+    dubContainer.innerHTML =
+        dubs
+            .map(
+                dub => `
+
+                    <button
+                        class="
+                            choice
+                            ${
+                                dub ===
+                                currentDub
+                                ? "active"
+                                : ""
+                            }
+                        "
+                        onclick="
+                            selectDub(
+                                '${escapeJS(
+                                    dub
+                                )}'
+                            )
+                        "
+                    >
+
+                        ${escapeHTML(
+                            dub
+                        )}
+
+                    </button>
+
+                `
+            )
+            .join("");
+
+
+    const qualities = [];
+
+
+    matching
+        .filter(
+            ep =>
+                String(
+                    ep.dub ||
+                    ""
+                ) ===
+                String(
+                    currentDub
+                )
+        )
+        .forEach(
+            ep => {
+
+                const quality =
+                    ep.quality ||
+                    "720p";
+
+
+                if (
+                    !qualities.includes(
+                        quality
+                    )
+                ) {
+
+                    qualities.push(
+                        quality
+                    );
+
+                }
+
+            }
+        );
+
+
+    qualities.sort(
+        (a, b) =>
+            parseInt(b) -
+            parseInt(a)
+    );
+
+
+    if (!qualities.length) {
+
+        qualities.push(
+            "720p"
+        );
+
+    }
+
+
+    if (
+        !qualities.includes(
+            currentQuality
+        )
+    ) {
+
+        currentQuality =
+            qualities[0];
+
+    }
+
+
+    const qualityContainer =
+        document.getElementById(
+            "qualityChoices"
+        );
+
+
+    qualityContainer.innerHTML =
+        qualities
+            .map(
+                quality => `
+
+                    <button
+                        class="
+                            choice
+                            ${
+                                quality ===
+                                currentQuality
+                                ? "active"
+                                : ""
+                            }
+                        "
+                        onclick="
+                            selectQuality(
+                                '${escapeJS(
+                                    quality
+                                )}'
+                            )
+                        "
+                    >
+
+                        ${escapeHTML(
+                            quality
+                        )}
+
+                    </button>
+
+                `
+            )
+            .join("");
+
+}
+
+
+/* =====================================================
+   ESCAPE JS
+===================================================== */
+
+
+function escapeJS(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        )
+        .replace(
+            /"/g,
+            '\\"'
+        )
+        .replace(
+            /\n/g,
+            "\\n"
+        )
+        .replace(
+            /\r/g,
+            "\\r"
+        );
+
+}
+
+
+/* =====================================================
+   LOAD VIDEO
+===================================================== */
+
+
+function loadVideo(
+    season,
+    episode
+) {
+
+    const playerContainer =
+        document.getElementById(
+            "playerContainer"
+        );
 
 
     const player =
@@ -2369,17 +3068,218 @@ function playEpisode(
         );
 
 
-    player.load();
+    const found =
+        currentEpisodes.find(
+            ep =>
+                Number(
+                    ep.season
+                ) ===
+                Number(
+                    season
+                )
+                &&
+                Number(
+                    ep.episode
+                ) ===
+                Number(
+                    episode
+                )
+                &&
+                String(
+                    ep.dub ||
+                    ""
+                ) ===
+                String(
+                    currentDub
+                )
+                &&
+                String(
+                    ep.quality ||
+                    ""
+                ) ===
+                String(
+                    currentQuality
+                )
+        );
 
 
-    loadAll();
+    if (
+        !found ||
+        !found.video_url
+    ) {
+
+        player.pause();
+
+        player.removeAttribute(
+            "src"
+        );
+
+        player.load();
+
+
+        playerContainer.innerHTML = `
+
+            <div class="player-message">
+
+                🎬 Видео для выбранных
+                параметров пока не найдено.
+
+                <br><br>
+
+                Озвучка:
+                <b>
+                    ${escapeHTML(
+                        currentDub
+                    )}
+                </b>
+
+                <br>
+
+                Качество:
+                <b>
+                    ${escapeHTML(
+                        currentQuality
+                    )}
+                </b>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    playerContainer.innerHTML = `
+
+        <video
+            id="videoPlayer"
+            controls
+            playsinline
+            preload="metadata"
+        ></video>
+
+    `;
+
+
+    const newPlayer =
+        document.getElementById(
+            "videoPlayer"
+        );
+
+
+    newPlayer.src =
+        found.video_url;
+
+
+    newPlayer.load();
+
+
+    newPlayer.onerror =
+        function() {
+
+            console.error(
+                "Video loading error:",
+                found.video_url
+            );
+
+        };
 
 }
 
 
-/* =========================
-   PREVIOUS
-========================= */
+/* =====================================================
+   SELECT DUB
+===================================================== */
+
+
+function selectDub(
+    dub
+) {
+
+    currentDub =
+        dub;
+
+
+    renderWatchChoices(
+        getCurrentSeason(),
+        currentEpisode
+    );
+
+
+    loadVideo(
+        getCurrentSeason(),
+        currentEpisode
+    );
+
+}
+
+
+/* =====================================================
+   SELECT QUALITY
+===================================================== */
+
+
+function selectQuality(
+    quality
+) {
+
+    currentQuality =
+        quality;
+
+
+    renderWatchChoices(
+        getCurrentSeason(),
+        currentEpisode
+    );
+
+
+    loadVideo(
+        getCurrentSeason(),
+        currentEpisode
+    );
+
+}
+
+
+/* =====================================================
+   CURRENT SEASON
+===================================================== */
+
+
+function getCurrentSeason() {
+
+    const found =
+        currentEpisodes.find(
+            ep =>
+                Number(
+                    ep.episode
+                ) ===
+                Number(
+                    currentEpisode
+                )
+        );
+
+
+    if (!found) {
+
+        return 1;
+
+    }
+
+
+    return Number(
+        found.season
+    ) || 1;
+
+}
+
+
+/* =====================================================
+   PREVIOUS EPISODE
+===================================================== */
+
 
 function previousEpisode() {
 
@@ -2388,26 +3288,55 @@ function previousEpisode() {
     ) return;
 
 
+    const index =
+        currentEpisodes.findIndex(
+            ep =>
+                Number(
+                    ep.season
+                ) ===
+                getCurrentSeason()
+                &&
+                Number(
+                    ep.episode
+                ) ===
+                Number(
+                    currentEpisode
+                )
+        );
+
+
     if (
-        currentEpisode <=
-        1
-    ) return;
+        index <= 0
+    ) {
+
+        return;
+
+    }
 
 
-    currentEpisode--;
+    const previous =
+        currentEpisodes[
+            index - 1
+        ];
 
 
     playEpisode(
         currentAnime.id,
-        currentEpisode
+        Number(
+            previous.episode
+        ),
+        Number(
+            previous.season
+        )
     );
 
 }
 
 
-/* =========================
-   NEXT
-========================= */
+/* =====================================================
+   NEXT EPISODE
+===================================================== */
+
 
 function nextEpisode() {
 
@@ -2416,93 +3345,117 @@ function nextEpisode() {
     ) return;
 
 
+    const index =
+        currentEpisodes.findIndex(
+            ep =>
+                Number(
+                    ep.season
+                ) ===
+                getCurrentSeason()
+                &&
+                Number(
+                    ep.episode
+                ) ===
+                Number(
+                    currentEpisode
+                )
+        );
+
+
     if (
-        currentEpisode >=
-        currentAnime.episodes
-    ) return;
+        index < 0 ||
+        index >=
+        currentEpisodes.length - 1
+    ) {
+
+        return;
+
+    }
 
 
-    currentEpisode++;
+    const next =
+        currentEpisodes[
+            index + 1
+        ];
 
 
     playEpisode(
         currentAnime.id,
-        currentEpisode
+        Number(
+            next.episode
+        ),
+        Number(
+            next.season
+        )
     );
 
 }
 
 
-/* =========================
-   DUB
-========================= */
+/* =====================================================
+   NAVIGATION BUTTONS
+===================================================== */
 
-function selectDub(
-    button
+
+function updateNavigationButtons(
+    season,
+    episode
 ) {
 
-    const section =
-        button.closest(
-            ".watch-section"
-        );
-
-
-    section
-        .querySelectorAll(
-            ".choice"
-        )
-        .forEach(
-            item =>
-                item.classList.remove(
-                    "active"
+    const index =
+        currentEpisodes.findIndex(
+            ep =>
+                Number(
+                    ep.season
+                ) ===
+                Number(
+                    season
+                )
+                &&
+                Number(
+                    ep.episode
+                ) ===
+                Number(
+                    episode
                 )
         );
 
 
-    button.classList.add(
-        "active"
-    );
+    const previous =
+        document.getElementById(
+            "previousButton"
+        );
+
+
+    const next =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    if (!previous || !next) {
+
+        return;
+
+    }
+
+
+    previous.disabled =
+        index <= 0;
+
+
+    next.disabled =
+        index < 0 ||
+        index >=
+        currentEpisodes.length - 1;
 
 }
 
 
-/* =========================
-   QUALITY
-========================= */
-
-function selectQuality(
-    button,
-    quality
-) {
-
-    const section =
-        button.closest(
-            ".watch-section"
-        );
-
-
-    section
-        .querySelectorAll(
-            ".choice"
-        )
-        .forEach(
-            item =>
-                item.classList.remove(
-                    "active"
-                )
-        );
-
-
-    button.classList.add(
-        "active"
-    );
-
-}
-
-
-/* =========================
+/* =====================================================
    SHOW PAGE
-========================= */
+===================================================== */
+
 
 function showPage(
     pageId
@@ -2547,20 +3500,18 @@ function showPage(
         );
 
 
-    const navItems =
-        document.querySelectorAll(
-            ".nav-item"
-        );
-
-
     if (
         pageId ===
         "homePage"
     ) {
 
-        navItems[0]?.classList.add(
-            "active"
-        );
+        document
+            .querySelectorAll(
+                ".nav-item"
+            )[0]
+            .classList.add(
+                "active"
+            );
 
     }
 
@@ -2570,9 +3521,14 @@ function showPage(
         "catalogPage"
     ) {
 
-        navItems[1]?.classList.add(
-            "active"
-        );
+        document
+            .querySelectorAll(
+                ".nav-item"
+            )[1]
+            .classList.add(
+                "active"
+            );
+
 
         loadCatalog();
 
@@ -2584,9 +3540,13 @@ function showPage(
         "favoritesPage"
     ) {
 
-        navItems[2]?.classList.add(
-            "active"
-        );
+        document
+            .querySelectorAll(
+                ".nav-item"
+            )[2]
+            .classList.add(
+                "active"
+            );
 
 
         filterLibrary(
@@ -2607,9 +3567,10 @@ function showPage(
 }
 
 
-/* =========================
+/* =====================================================
    SEARCH BUTTON
-========================= */
+===================================================== */
+
 
 function focusSearch() {
 
@@ -2640,9 +3601,10 @@ function focusSearch() {
 }
 
 
-/* =========================
+/* =====================================================
    LOAD EVERYTHING
-========================= */
+===================================================== */
+
 
 function loadAll() {
 
@@ -2669,11 +3631,13 @@ function loadAll() {
 }
 
 
-/* =========================
+/* =====================================================
    START
-========================= */
+===================================================== */
+
 
 loadAnimeFromSupabase();
+
 
 </script>
 
